@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# site-base
 
-## Getting Started
+Template para gerar prévias de site one-page para negócios locais, rápido e com a identidade de cada marca.
 
-First, run the development server:
+Next.js 16 + Tailwind CSS 4, fontes auto-hospedadas (Fontsource), ícones Lucide. Sem banco de dados, sem CMS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Como usar com um cliente novo
+
+1. No GitHub, clique em **Use this template** → crie `demo-nome-do-cliente` (privado).
+2. Clone, instale e abra o Claude Code na pasta:
+   ```bash
+   git clone https://github.com/<seu-usuario>/demo-nome-do-cliente
+   cd demo-nome-do-cliente
+   pnpm install
+   claude
+   ```
+3. Coloque prints do Instagram e as fotos do cliente em `public/cliente/` (veja abaixo).
+4. Rode a skill que já vem no projeto:
+   ```text
+   /site-rapido Nome do Negócio, Cidade-UF — instagram.com/... — maps: ...
+   ```
+5. Aprove a identidade em `http://localhost:3000/identidade` e deixe a skill terminar.
+
+## Páginas
+
+| Rota | Para quê |
+|---|---|
+| `/` | o site do cliente |
+| `/identidade` | prancha de identidade visual para aprovar (cores, fontes, componentes, prévia) |
+| `/variacoes` | catálogo com as 3 variações de cada seção |
+
+As duas últimas ficam fora do Google (noindex).
+
+## O que muda por cliente
+
+| Arquivo | Conteúdo |
+|---|---|
+| `src/content/cliente.json` | textos, contatos, horários, avaliações, fotos, identidade e layout |
+| `src/styles/tokens.css` | cores, fontes, formas |
+| `src/styles/fontes.ts` | quais fontes carregar |
+| `public/cliente/` | logo, fotos, prints do Instagram |
+
+Componentes em `src/components/` não mudam por cliente.
+
+### Layout no `cliente.json`
+
+```json
+"layout": {
+  "navbar": 1,
+  "secoes": [
+    { "tipo": "hero", "variacao": 1, "tom": "claro" },
+    { "tipo": "sobre", "variacao": 3, "tom": "claro" },
+    { "tipo": "servicos", "variacao": 2, "tom": "suave" }
+  ],
+  "rodape": { "variacao": 3, "tom": "escuro" },
+  "whatsappFlutuante": true
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `tipo`: `hero`, `sobre`, `servicos`, `galeria`, `avaliacoes`, `localizacao`, `cta`
+- `variacao`: `1`, `2` ou `3` (veja em `/variacoes`)
+- `tom`: `claro`, `suave`, `marca` ou `escuro` (fundo da seção)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Fotos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+public/cliente/
+  logo.svg (ou .png)           → "identidade.logo": "/cliente/logo.svg"
+  hero.jpg, sobre.jpg, cta.jpg
+  servico-1.jpg ...
+  galeria-1.jpg ...
+  instagram/post-1.jpg ...     → prints usados na prancha
+```
 
-## Learn More
+Enquanto uma foto não existe, o site mostra um espaço reservado nas cores da marca com a descrição da foto que deve entrar ali.
 
-To learn more about Next.js, take a look at the following resources:
+## Catálogo de variações
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Seção | 1 | 2 | 3 |
+|---|---|---|---|
+| Navbar | Clássica | Centralizada (faixa com telefone) | Pílula flutuante (menu em tela cheia) |
+| Hero | Dividida (foto recortada) | Tipográfica (sem foto) | Imersiva (foto em tela cheia) |
+| Sobre | Foto com moldura | Números | Manifesto + pilares |
+| Serviços | Grade de cards | Lista editorial | Carrossel com fotos |
+| Galeria | Mosaico | Faixa contínua | Feed do Instagram |
+| Avaliações | Grade (mural) | Destaque único | Faixa + nota grande |
+| Localização | Mapa grande + card | Duas colunas | Bloco de contatos |
+| Chamada final | Faixa larga | Foto de fundo | Cartão com assinatura |
+| Rodapé | Completo | Minimalista | Nome gigante |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para criar uma 4ª variação: crie o componente na pasta da seção, registre no `index.ts` da pasta e no tipo `Variacao` (`src/content/tipos.ts`).
 
-## Deploy on Vercel
+## Modo demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`"modoDemo": true` no `cliente.json` tira o site do Google (noindex) e mostra o selo "Prévia de proposta para …". Desligue quando o cliente fechar.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Comandos
+
+```bash
+pnpm dev     # desenvolvimento em http://localhost:3000
+pnpm build   # build de produção (rode antes de entregar)
+pnpm lint
+```
+
+O conteúdo de exemplo (Alecrim, Campinas) é fictício.

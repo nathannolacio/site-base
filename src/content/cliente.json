@@ -1,0 +1,298 @@
+{
+  "modoDemo": true,
+  "pendencias": [
+    "Número de WhatsApp e telefone",
+    "Endereço completo",
+    "Nota e total de avaliações do Google",
+    "Fotos em alta resolução"
+  ],
+  "negocio": {
+    "nome": "Alecrim",
+    "segmento": "Empório e café",
+    "cidade": "Campinas-SP",
+    "frase": "Café coado, pão de fermentação natural e um balcão para ficar.",
+    "descricao": "Empório de bairro no Cambuí com cafés especiais, pães de longa fermentação e produtos de pequenos produtores do interior paulista.",
+    "selo": "Pão saindo do forno às 7h e às 16h"
+  },
+  "identidade": {
+    "logo": "",
+    "recorte": "arco",
+    "assinatura": "pontos",
+    "origem": [
+      {
+        "src": "/cliente/instagram/post-1.jpg",
+        "nota": "Verde-escuro da fachada e das embalagens virou a cor principal."
+      },
+      {
+        "src": "/cliente/instagram/post-2.jpg",
+        "nota": "Amarelo-mostarda dos rótulos de geleia virou a cor de destaque."
+      },
+      {
+        "src": "/cliente/instagram/post-3.jpg",
+        "nota": "Posts com letras grossas e arredondadas pediram uma fonte de título encorpada."
+      },
+      {
+        "src": "/cliente/instagram/post-4.jpg",
+        "nota": "As portas em arco do salão viraram o recorte das fotos."
+      }
+    ]
+  },
+  "contato": {
+    "whatsapp": "5519900000000",
+    "mensagemWhatsapp": "Olá! Vi o site do Alecrim e queria fazer um pedido.",
+    "telefone": "(19) 90000-0000",
+    "email": "",
+    "endereco": "Rua Exemplo, 123",
+    "bairroCidade": "Cambuí, Campinas-SP",
+    "mapsUrl": "",
+    "horarios": [
+      {
+        "dias": "Terça a sexta",
+        "horas": "7h às 19h"
+      },
+      {
+        "dias": "Sábado",
+        "horas": "8h às 17h"
+      },
+      {
+        "dias": "Domingo",
+        "horas": "8h às 13h"
+      },
+      {
+        "dias": "Segunda",
+        "horas": "Fechado"
+      }
+    ]
+  },
+  "redes": {
+    "instagram": {
+      "usuario": "alecrim.emporio",
+      "url": "https://instagram.com/"
+    },
+    "facebook": "",
+    "tiktok": ""
+  },
+  "fotos": {
+    "hero": {
+      "src": "/cliente/hero.jpg",
+      "alt": "Balcão do Alecrim com pães sobre tábuas de madeira"
+    },
+    "sobre": {
+      "src": "/cliente/sobre.jpg",
+      "alt": "Padeiro moldando massa de fermentação natural"
+    },
+    "cta": {
+      "src": "/cliente/cta.jpg",
+      "alt": "Xícara de café coado sobre a mesa"
+    }
+  },
+  "sobre": {
+    "titulo": "Um empório de bairro, do jeito que a gente gosta de comprar",
+    "texto": "O Alecrim nasceu em 2019 de uma ideia simples: ter perto de casa o pão que a gente faria se tivesse tempo. A massa descansa por 36 horas, o café vem de dois sítios do sul de Minas e as prateleiras guardam queijos, geleias e mel de produtores que conhecemos pelo nome.",
+    "manifesto": "Pão que descansa, café que se coa sem pressa e gente que sabe o seu pedido.",
+    "pilares": [
+      {
+        "icone": "Wheat",
+        "titulo": "Fermentação natural",
+        "texto": "Massa-mãe própria e 36 horas de descanso antes do forno."
+      },
+      {
+        "icone": "Coffee",
+        "titulo": "Café de origem",
+        "texto": "Grãos de dois sítios do sul de Minas, torrados toda semana."
+      },
+      {
+        "icone": "HandHeart",
+        "titulo": "Pequenos produtores",
+        "texto": "Queijos, geleias e mel de quem a gente visita."
+      }
+    ],
+    "numeros": [
+      {
+        "valor": "2019",
+        "rotulo": "abrindo as portas no Cambuí"
+      },
+      {
+        "valor": "36h",
+        "rotulo": "de fermentação em cada pão"
+      },
+      {
+        "valor": "4,9",
+        "rotulo": "de nota no Google"
+      }
+    ]
+  },
+  "servicos": {
+    "titulo": "Do forno, do coador e da prateleira",
+    "intro": "Tudo pode ser consumido no balcão ou levado para casa. Encomendas grandes pelo WhatsApp com um dia de antecedência.",
+    "itens": [
+      {
+        "icone": "Croissant",
+        "nome": "Pães de fermentação natural",
+        "descricao": "Italiano, integral com sementes e o de azeitona que acaba antes do almoço.",
+        "preco": "",
+        "foto": {
+          "src": "/cliente/servico-1.jpg",
+          "alt": "Pães de fermentação natural na prateleira"
+        }
+      },
+      {
+        "icone": "Coffee",
+        "nome": "Cafés especiais",
+        "descricao": "Coado, espresso e cold brew com grãos de origem, também vendidos em pacote.",
+        "preco": "",
+        "foto": {
+          "src": "/cliente/servico-2.jpg",
+          "alt": "Barista preparando café coado"
+        }
+      },
+      {
+        "icone": "Sandwich",
+        "nome": "Lanches e cafés da manhã",
+        "descricao": "Tostas, sanduíches no pão da casa e o café da manhã completo de fim de semana.",
+        "preco": "",
+        "foto": {
+          "src": "/cliente/servico-3.jpg",
+          "alt": "Tosta com queijo e tomate"
+        }
+      },
+      {
+        "icone": "ShoppingBasket",
+        "nome": "Empório",
+        "descricao": "Queijos curados, geleias, mel e azeites de pequenos produtores do interior.",
+        "preco": "",
+        "foto": {
+          "src": "/cliente/servico-4.jpg",
+          "alt": "Prateleira com potes de geleia e mel"
+        }
+      },
+      {
+        "icone": "Gift",
+        "nome": "Cestas e encomendas",
+        "descricao": "Cestas de café da manhã para presente e pedidos para eventos.",
+        "preco": "",
+        "foto": {
+          "src": "/cliente/servico-5.jpg",
+          "alt": "Cesta de café da manhã montada"
+        }
+      }
+    ]
+  },
+  "galeria": {
+    "titulo": "Um pouco do nosso dia",
+    "fotos": [
+      {
+        "src": "/cliente/galeria-1.jpg",
+        "alt": "Fachada do Alecrim pela manhã"
+      },
+      {
+        "src": "/cliente/galeria-2.jpg",
+        "alt": "Pães recém-saídos do forno"
+      },
+      {
+        "src": "/cliente/galeria-3.jpg",
+        "alt": "Mesa com café e bolo"
+      },
+      {
+        "src": "/cliente/galeria-4.jpg",
+        "alt": "Prateleiras do empório"
+      },
+      {
+        "src": "/cliente/galeria-5.jpg",
+        "alt": "Clientes conversando no balcão"
+      },
+      {
+        "src": "/cliente/galeria-6.jpg",
+        "alt": "Detalhe de croissant"
+      }
+    ]
+  },
+  "avaliacoes": {
+    "titulo": "O que dizem no Google",
+    "nota": 4.9,
+    "total": 312,
+    "fonteUrl": "",
+    "itens": [
+      {
+        "nome": "Mariana",
+        "nota": 5,
+        "texto": "O pão italiano é o melhor da região, e o atendimento faz a gente se sentir em casa. Virou parada obrigatória de sábado.",
+        "quando": "há 2 semanas"
+      },
+      {
+        "nome": "Rafael",
+        "nota": 5,
+        "texto": "Café coado excelente e o pessoal explica de onde vem cada grão. Ambiente tranquilo para trabalhar um pouco.",
+        "quando": "há 1 mês"
+      },
+      {
+        "nome": "Juliana",
+        "nota": 5,
+        "texto": "Encomendei uma cesta de café da manhã para minha mãe e chegou linda, tudo fresquinho.",
+        "quando": "há 1 mês"
+      },
+      {
+        "nome": "Carlos",
+        "nota": 4,
+        "texto": "Pães ótimos. Aos sábados enche, então vale chegar cedo.",
+        "quando": "há 2 meses"
+      },
+      {
+        "nome": "Fernanda",
+        "nota": 5,
+        "texto": "A geleia de pimenta e o queijo canastra que eles vendem são imperdíveis.",
+        "quando": "há 3 meses"
+      }
+    ]
+  },
+  "cta": {
+    "titulo": "Encomende pelo WhatsApp e retire quentinho",
+    "texto": "Pedidos até as 18h saem no forno da manhã seguinte.",
+    "botao": "Fazer encomenda"
+  },
+  "layout": {
+    "navbar": 1,
+    "secoes": [
+      {
+        "tipo": "hero",
+        "variacao": 1,
+        "tom": "claro"
+      },
+      {
+        "tipo": "sobre",
+        "variacao": 1,
+        "tom": "claro"
+      },
+      {
+        "tipo": "servicos",
+        "variacao": 2,
+        "tom": "suave"
+      },
+      {
+        "tipo": "galeria",
+        "variacao": 1,
+        "tom": "claro"
+      },
+      {
+        "tipo": "avaliacoes",
+        "variacao": 3,
+        "tom": "marca"
+      },
+      {
+        "tipo": "localizacao",
+        "variacao": 1,
+        "tom": "claro"
+      },
+      {
+        "tipo": "cta",
+        "variacao": 3,
+        "tom": "suave"
+      }
+    ],
+    "rodape": {
+      "variacao": 3,
+      "tom": "escuro"
+    },
+    "whatsappFlutuante": true
+  }
+}

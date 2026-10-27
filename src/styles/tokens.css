@@ -1,0 +1,33 @@
+/*
+ * TOKENS DA MARCA — o único arquivo de estilo que muda de um cliente para outro.
+ * A skill /site-rapido reescreve estes valores a partir da identidade do Instagram.
+ * Tudo no site (e a prancha /identidade) lê daqui.
+ */
+:root {
+  /* Cores */
+  --cor-marca: #23432f;            /* cor principal da marca (logo, botões, faixas) */
+  --cor-marca-contraste: #f3f4ee;  /* texto sobre a cor principal */
+  --cor-fundo: #f3f4ee;            /* fundo do site */
+  --cor-superficie: #e2e8d8;       /* fundo alternativo de seções e cards */
+  --cor-tinta: #17231a;            /* texto principal */
+  --cor-tinta-suave: #4b5a4f;      /* texto secundário */
+  --cor-destaque: #e8b23a;         /* detalhes: estrelas, selos, sublinhados */
+  --cor-sobre-destaque: #17231a;   /* texto sobre a cor de destaque */
+
+  /* Fontes (instaladas em src/styles/fontes.ts) */
+  --fonte-titulo: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --fonte-texto: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Personalidade dos títulos */
+  --titulo-peso: 700;
+  --titulo-espacamento: -0.025em;
+  --titulo-caixa: none;            /* none | uppercase */
+  --titulo-entrelinha: 1.02;
+
+  /* Formas */
+  --raio-pequeno: 6px;
+  --raio: 14px;
+  --raio-grande: 28px;
+  --raio-botao: 999px;             /* 999px = pílula, 0 = reto */
+  --sombra: 0 18px 40px -24px rgb(23 35 26 / 0.45);
+}

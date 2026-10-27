@@ -1,26 +1,190 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * TONS DE SEÇÃO
+ * Cada seção recebe data-tom="claro|suave|marca|escuro" e as cores semânticas abaixo
+ * se reorganizam. Componentes usam só as cores semânticas (fundo, texto, acento...),
+ * por isso qualquer seção funciona em qualquer tom.
+ */
+:root,
+[data-tom="claro"] {
+  --fundo: var(--cor-fundo);
+  --texto: var(--cor-tinta);
+  --texto-suave: var(--cor-tinta-suave);
+  --cartao: var(--cor-superficie);
+  --acento: var(--cor-marca);
+  --sobre-acento: var(--cor-marca-contraste);
+  --linha: color-mix(in oklab, var(--cor-tinta) 14%, transparent);
+}
+[data-tom="suave"] {
+  --fundo: var(--cor-superficie);
+  --texto: var(--cor-tinta);
+  --texto-suave: var(--cor-tinta-suave);
+  --cartao: var(--cor-fundo);
+  --acento: var(--cor-marca);
+  --sobre-acento: var(--cor-marca-contraste);
+  --linha: color-mix(in oklab, var(--cor-tinta) 16%, transparent);
+}
+[data-tom="marca"] {
+  --fundo: var(--cor-marca);
+  --texto: var(--cor-marca-contraste);
+  --texto-suave: color-mix(in oklab, var(--cor-marca-contraste) 78%, var(--cor-marca));
+  --cartao: color-mix(in oklab, var(--cor-marca-contraste) 9%, var(--cor-marca));
+  --acento: var(--cor-destaque);
+  --sobre-acento: var(--cor-sobre-destaque);
+  --linha: color-mix(in oklab, var(--cor-marca-contraste) 22%, transparent);
+}
+[data-tom="escuro"] {
+  --fundo: var(--cor-tinta);
+  --texto: var(--cor-fundo);
+  --texto-suave: color-mix(in oklab, var(--cor-fundo) 72%, var(--cor-tinta));
+  --cartao: color-mix(in oklab, var(--cor-fundo) 8%, var(--cor-tinta));
+  --acento: var(--cor-destaque);
+  --sobre-acento: var(--cor-sobre-destaque);
+  --linha: color-mix(in oklab, var(--cor-fundo) 18%, transparent);
+}
+[data-tom] {
+  background-color: var(--fundo);
+  color: var(--texto);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-fundo: var(--fundo);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --color-cartao: var(--cartao);
+  --color-acento: var(--acento);
+  --color-sobre-acento: var(--sobre-acento);
+  --color-linha: var(--linha);
+  --color-marca: var(--cor-marca);
+  --color-marca-contraste: var(--cor-marca-contraste);
+  --color-destaque: var(--cor-destaque);
+  --color-sobre-destaque: var(--cor-sobre-destaque);
+  --color-tinta: var(--cor-tinta);
+  --font-titulo: var(--fonte-titulo);
+  --font-texto: var(--fonte-texto);
+  --radius-pequeno: var(--raio-pequeno);
+  --radius-base: var(--raio);
+  --radius-grande: var(--raio-grande);
+  --radius-botao: var(--raio-botao);
+  --shadow-marca: var(--sombra);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+body {
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+::selection {
+  background: var(--cor-destaque);
+  color: var(--cor-sobre-destaque);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Escala tipográfica */
+@layer components {
+  .titulo {
+    font-family: var(--fonte-titulo);
+    font-weight: var(--titulo-peso);
+    letter-spacing: var(--titulo-espacamento);
+    text-transform: var(--titulo-caixa);
+    line-height: var(--titulo-entrelinha);
+    text-wrap: balance;
+  }
+  .t-gigante {
+    font-size: clamp(3.25rem, 10vw, 9rem);
+    line-height: 0.92;
+  }
+  .t-1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+  }
+  .t-2 {
+    font-size: clamp(2rem, 4.2vw, 3.5rem);
+  }
+  .t-3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.2;
+  }
+  .t-lead {
+    font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+  .t-pequeno {
+    font-size: 0.9375rem;
+  }
+  .medida {
+    max-width: 62ch;
+  }
+  .container-site {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
+  .secao {
+    padding-block: clamp(4.5rem, 10vw, 8.5rem);
+  }
 }
+
+/* Recortes de foto (identidade.recorte) */
+.recorte-reto { border-radius: var(--raio-grande); }
+.recorte-arco { border-radius: 999px 999px var(--raio) var(--raio); }
+.recorte-circulo { border-radius: 9999px; }
+.recorte-pilula { border-radius: 9999px; }
+.recorte-blob { border-radius: 62% 38% 54% 46% / 48% 58% 42% 52%; }
+.recorte-inclinado {
+  border-radius: var(--raio);
+  clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
+}
+.recorte-folha { border-radius: 0 999px 0 999px; }
+
+/* Animações (todas desligadas com prefers-reduced-motion) */
+@keyframes deslizar {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.faixa-continua {
+  animation: deslizar var(--duracao, 45s) linear infinite;
+}
+.faixa-continua:hover {
+  animation-play-state: paused;
+}
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.entrada > * {
+  animation: surgir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.entrada > *:nth-child(2) { animation-delay: 0.08s; }
+.entrada > *:nth-child(3) { animation-delay: 0.16s; }
+.entrada > *:nth-child(4) { animation-delay: 0.24s; }
+.entrada > *:nth-child(5) { animation-delay: 0.32s; }
+
+.sem-barra { scrollbar-width: none; }
+.sem-barra::-webkit-scrollbar { display: none; }
