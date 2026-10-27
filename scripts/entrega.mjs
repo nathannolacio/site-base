@@ -2,9 +2,9 @@
 /**
  * Gera o repositório de ENTREGA do cliente: uma cópia limpa, só com o site.
  *
- *   pnpm entrega                 → cria ../site-<nome-do-cliente>
- *   pnpm entrega ../outra-pasta  → cria na pasta indicada
- *   pnpm entrega --manter-demo   → mantém o modo demo ligado (noindex + selo de prévia)
+ *   npm run entrega              → cria ../site-<nome-do-cliente>
+ *   npm run entrega ../outra-pasta → cria na pasta indicada
+ *   npm run entrega -- --manter-demo → mantém o modo demo ligado (noindex + selo de prévia)
  *
  * Remove tudo que é do template: prancha /identidade, catálogo /variacoes, variações não usadas,
  * instruções para IA (CLAUDE.md, AGENTS.md, .claude/), este script, prints do Instagram,
@@ -196,6 +196,13 @@ const pkg = JSON.parse(fs.readFileSync(pkgCaminho, "utf8"));
 pkg.name = `site-${slug}`;
 delete pkg.scripts.entrega;
 fs.writeFileSync(pkgCaminho, JSON.stringify(pkg, null, 2) + "\n");
+const lockCaminho = path.join(DESTINO, "package-lock.json");
+if (fs.existsSync(lockCaminho)) {
+  const lock = JSON.parse(fs.readFileSync(lockCaminho, "utf8"));
+  lock.name = pkg.name;
+  if (lock.packages?.[""]) lock.packages[""].name = pkg.name;
+  fs.writeFileSync(lockCaminho, JSON.stringify(lock, null, 2) + "\n");
+}
 
 const { negocio } = cliente;
 fs.writeFileSync(
@@ -209,8 +216,8 @@ Feito com Next.js e Tailwind CSS.
 ## Rodar no computador
 
 \`\`\`bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 \`\`\`
 
 O site abre em http://localhost:3000.
@@ -226,7 +233,7 @@ O site abre em http://localhost:3000.
 ## Publicar
 
 \`\`\`bash
-pnpm build
+npm run build
 \`\`\`
 
 Pronto para hospedar na Vercel ou em qualquer serviço compatível com Next.js.
@@ -242,4 +249,4 @@ console.log(`\nEntrega criada em ${DESTINO}`);
 console.log(`  seções: ${[navbar, ...secoes.map((s) => s.nome), rodape].join(", ")}`);
 console.log(`  arquivos de código removidos por não serem usados: ${removidos.length}`);
 console.log(`  modo demo: ${json.modoDemo ? "ligado" : "desligado"}`);
-console.log(`\nPróximos passos: cd ${path.relative(RAIZ, DESTINO)} && pnpm install && pnpm build`);
+console.log(`\nPróximos passos: cd ${path.relative(RAIZ, DESTINO)} && npm install && npm run build`);

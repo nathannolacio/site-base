@@ -11,7 +11,7 @@ Next.js 16 + Tailwind CSS 4, fontes auto-hospedadas (Fontsource), ícones Lucide
    ```bash
    git clone https://github.com/<seu-usuario>/demo-nome-do-cliente
    cd demo-nome-do-cliente
-   pnpm install
+   npm install
    claude
    ```
 3. Coloque prints do Instagram e as fotos do cliente em `public/cliente/` (veja abaixo).
@@ -26,10 +26,10 @@ O repositório `demo-…` é interno. O cliente recebe a **entrega limpa** (abai
 ## Entregar o código ao cliente
 
 ```bash
-pnpm entrega            # cria ../site-<nome-do-cliente>
+npm run entrega         # cria ../site-<nome-do-cliente>
 ```
 
-Gera uma pasta nova, com histórico git próprio, contendo só o site: as seções escolhidas, o conteúdo, as fotos e um README do cliente. Ficam de fora a prancha `/identidade`, o catálogo `/variacoes`, as variações não usadas, `CLAUDE.md`, `AGENTS.md`, este script, os prints do Instagram e as pendências. O modo demo é desligado (use `--manter-demo` para mantê-lo).
+Gera uma pasta nova, com histórico git próprio, contendo só o site: as seções escolhidas, o conteúdo, as fotos e um README do cliente. Ficam de fora a prancha `/identidade`, o catálogo `/variacoes`, as variações não usadas, `CLAUDE.md`, `AGENTS.md`, este script, os prints do Instagram e as pendências. O modo demo é desligado (use `npm run entrega -- --manter-demo` para mantê-lo).
 
 ## Páginas
 
@@ -121,10 +121,10 @@ Para criar uma 4ª variação: crie o componente na pasta da seção, registre n
 ## Comandos
 
 ```bash
-pnpm dev       # desenvolvimento em http://localhost:3000
-pnpm build     # build de produção
-pnpm lint
-pnpm entrega   # cópia limpa para o cliente
+npm run dev       # desenvolvimento em http://localhost:3000
+npm run build     # build de produção
+npm run lint
+npm run entrega   # cópia limpa para o cliente
 ```
 
 Trechos de código que só fazem sentido no template ficam entre `// @template` e `// @fim-template`; a entrega remove esses trechos.
