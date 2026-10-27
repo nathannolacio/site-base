@@ -7,7 +7,6 @@ import type { NavbarProps } from "./tipos";
 import { useMenuAberto } from "./useRolagem";
 
 /**
- * Navbar 2 — Centralizada
  * Faixa fina no topo com telefone e horário; logo no centro e links divididos dos dois lados.
  * A faixa rola junto com a página; a barra principal gruda no topo.
  */

@@ -7,7 +7,6 @@ import type { SecaoProps } from "../tipos";
 const LARGURAS = ["w-56 md:w-72", "w-72 md:w-[26rem]", "w-48 md:w-64", "w-64 md:w-80"];
 
 /**
- * Galeria 2 — Faixa contínua
  * Duas faixas de fotos deslizando sozinhas em sentidos opostos (para ao passar o mouse,
  * e fica parada para quem prefere menos movimento). Dá vida à página sem ocupar espaço.
  */

@@ -4,9 +4,7 @@ import type { SecaoProps } from "../tipos";
 import { Redes } from "./Redes";
 
 /**
- * Rodapé 3 — Nome gigante
  * Links e contatos em cima; o nome da marca enorme ocupa a largura toda, como assinatura final.
- * Funciona melhor com nomes curtos (até ~10 letras). Use com tom "escuro" ou "marca".
  */
 export function RodapeGigante({ c, tom }: SecaoProps) {
   const { negocio, contato } = c;

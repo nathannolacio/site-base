@@ -3,9 +3,7 @@ import { ANCORAS } from "@/content/conteudo";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Sobre 2 — Números
- * Três ou quatro números grandes (só números reais e confirmados!) com um texto curto.
- * Boa para negócios com tempo de mercado, volume de clientes ou nota alta no Google.
+ * Três ou quatro números grandes com um texto curto.
  */
 export function SobreNumeros({ c, tom }: SecaoProps) {
   const { sobre } = c;

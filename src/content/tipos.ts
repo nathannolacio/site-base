@@ -1,4 +1,4 @@
-/* Formato do cliente.json. A skill /site-rapido preenche este arquivo. */
+/* Formato do cliente.json (todo o conteúdo do site). */
 
 export type Tom = "claro" | "suave" | "marca" | "escuro";
 export type Variacao = 1 | 2 | 3;
@@ -22,8 +22,9 @@ export type SecaoLayout = { tipo: TipoSecao; variacao: Variacao; tom: Tom };
 
 export type ClienteJson = {
   modoDemo: boolean;
-  /** itens [a confirmar] mostrados na prancha /identidade */
-  pendencias: string[];
+  // @template
+  pendencias?: string[];
+  // @fim-template
   negocio: {
     nome: string;
     segmento: string;
@@ -36,8 +37,9 @@ export type ClienteJson = {
     logo?: string;
     recorte: Recorte;
     assinatura: Assinatura;
-    /** prints/fotos do Instagram que originaram a identidade (prancha /identidade) */
-    origem: { src: string; nota: string }[];
+    // @template
+    origem?: { src: string; nota: string }[];
+    // @fim-template
   };
   contato: {
     whatsapp: string;

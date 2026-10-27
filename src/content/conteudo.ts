@@ -4,7 +4,7 @@ import dados from "./cliente.json";
 import type { ClienteJson, Foto, TipoSecao } from "./tipos";
 
 /** Fotos que ainda não estão em /public viram espaço reservado em vez de quebrar o site. */
-function verificarFoto(foto: Foto): Foto {
+export function verificarFoto(foto: Foto): Foto {
   if (!foto?.src) return { src: null, alt: foto?.alt ?? "" };
   if (/^https?:\/\//.test(foto.src)) return foto;
   const existe = fs.existsSync(path.join(process.cwd(), "public", foto.src));
@@ -18,7 +18,6 @@ function carregar(): ClienteJson {
   c.fotos.cta = verificarFoto(c.fotos.cta);
   c.galeria.fotos = c.galeria.fotos.map(verificarFoto);
   c.servicos.itens = c.servicos.itens.map((s) => (s.foto ? { ...s, foto: verificarFoto(s.foto) } : s));
-  c.identidade.origem = c.identidade.origem.map((o) => ({ ...o, src: verificarFoto({ src: o.src, alt: "" }).src ?? "" }));
   if (c.identidade.logo) {
     const logo = verificarFoto({ src: c.identidade.logo, alt: "" });
     c.identidade.logo = logo.src ?? "";

@@ -5,9 +5,7 @@ import type { SecaoProps } from "../tipos";
 import { ResumoNota } from "./Cabecalho";
 
 /**
- * Avaliações 1 — Grade
  * Cards em colunas de alturas livres (como um mural), com estrelas, texto e nome.
- * Boa com 4 a 9 avaliações de tamanhos variados.
  */
 export function AvaliacoesGrade({ c, tom }: SecaoProps) {
   const { avaliacoes } = c;

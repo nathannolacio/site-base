@@ -15,11 +15,21 @@ Next.js 16 + Tailwind CSS 4, fontes auto-hospedadas (Fontsource), ícones Lucide
    claude
    ```
 3. Coloque prints do Instagram e as fotos do cliente em `public/cliente/` (veja abaixo).
-4. Rode a skill que já vem no projeto:
+4. Rode a skill `/site-rapido` (instalada na sua conta, fora deste repositório):
    ```text
    /site-rapido Nome do Negócio, Cidade-UF — instagram.com/... — maps: ...
    ```
 5. Aprove a identidade em `http://localhost:3000/identidade` e deixe a skill terminar.
+
+O repositório `demo-…` é interno. O cliente recebe a **entrega limpa** (abaixo).
+
+## Entregar o código ao cliente
+
+```bash
+pnpm entrega            # cria ../site-<nome-do-cliente>
+```
+
+Gera uma pasta nova, com histórico git próprio, contendo só o site: as seções escolhidas, o conteúdo, as fotos e um README do cliente. Ficam de fora a prancha `/identidade`, o catálogo `/variacoes`, as variações não usadas, `CLAUDE.md`, `AGENTS.md`, este script, os prints do Instagram e as pendências. O modo demo é desligado (use `--manter-demo` para mantê-lo).
 
 ## Páginas
 
@@ -88,7 +98,7 @@ Enquanto uma foto não existe, o site mostra um espaço reservado nas cores da m
 | Chamada final | Faixa larga | Foto de fundo | Cartão com assinatura |
 | Rodapé | Completo | Minimalista | Nome gigante |
 
-Para criar uma 4ª variação: crie o componente na pasta da seção, registre no `index.ts` da pasta e no tipo `Variacao` (`src/content/tipos.ts`).
+Para criar uma 4ª variação: crie o componente na pasta da seção, registre no `index.ts` da pasta, no tipo `Variacao` (`src/content/tipos.ts`) e na tabela `COMPONENTES` de `scripts/entrega.mjs`.
 
 ## Modo demo
 
@@ -97,9 +107,12 @@ Para criar uma 4ª variação: crie o componente na pasta da seção, registre n
 ## Comandos
 
 ```bash
-pnpm dev     # desenvolvimento em http://localhost:3000
-pnpm build   # build de produção (rode antes de entregar)
+pnpm dev       # desenvolvimento em http://localhost:3000
+pnpm build     # build de produção
 pnpm lint
+pnpm entrega   # cópia limpa para o cliente
 ```
+
+Trechos de código que só fazem sentido no template ficam entre `// @template` e `// @fim-template`; a entrega remove esses trechos.
 
 O conteúdo de exemplo (Alecrim, Campinas) é fictício.

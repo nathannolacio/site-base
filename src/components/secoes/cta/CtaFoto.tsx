@@ -6,9 +6,7 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * CTA 2 — Foto de fundo
  * Foto do cliente com véu escuro e o convite centralizado por cima.
- * Boa para fechar a página com emoção (comida, ambiente, resultado de um serviço).
  * Sempre usa tom escuro.
  */
 export function CtaFoto({ c }: SecaoProps) {

@@ -8,9 +8,7 @@ import { linkWhatsapp, nota } from "@/lib/links";
 import { espacoNavbar, type SecaoProps } from "../tipos";
 
 /**
- * Hero 1 — Dividida
  * Texto à esquerda; foto grande recortada à direita, com o elemento de assinatura atrás.
- * Boa para marcas com uma foto forte de produto, ambiente ou pessoa.
  */
 export function HeroDividida({ c, tom }: SecaoProps) {
   const { negocio, identidade, avaliacoes, contato } = c;

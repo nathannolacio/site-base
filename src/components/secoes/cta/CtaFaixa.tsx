@@ -5,9 +5,7 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * CTA 1 — Faixa larga
  * Faixa de ponta a ponta com título grande e o botão do WhatsApp. Direta e objetiva.
- * Use com tom "marca" (padrão) ou "escuro".
  */
 export function CtaFaixa({ c, tom }: SecaoProps) {
   const { cta, contato } = c;

@@ -6,10 +6,8 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Serviços 2 — Lista editorial
  * Linhas largas com nome grande e descrição. No computador, a foto do serviço
  * aparece ao passar o mouse; no celular, uma miniatura fica ao lado do nome.
- * Boa para cardápios curtos, tratamentos, especialidades.
  */
 export function ServicosLista({ c, tom }: SecaoProps) {
   const { servicos, contato } = c;

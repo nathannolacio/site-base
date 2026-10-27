@@ -59,7 +59,7 @@ export default function PaginaVariacoes() {
         {VARIACOES.map((v) => {
           const { nome, Componente } = NAVBARS[v];
           return (
-            <Item key={v} rotulo={`Navbar ${v}: ${nome}`} config={`"navbar": ${v}`}>
+            <Item key={v} id={`navbar-${v}`} rotulo={`Navbar ${v}: ${nome}`} config={`"navbar": ${v}`}>
               <div className="relative h-40 overflow-hidden bg-cartao">
                 <Componente {...navProps} preview />
               </div>
@@ -71,10 +71,10 @@ export default function PaginaVariacoes() {
       {tipos.map((tipo) => (
         <Grupo key={tipo} id={tipo} titulo={ROTULO_SECAO[tipo]}>
           {VARIACOES.map((v) => {
-            const { nome, Componente } = SECOES[tipo][v];
+            const { nome, Componente } = SECOES[tipo]![v]!;
             const tom = TOM_PADRAO[tipo][v];
             return (
-              <Item key={v} rotulo={`${ROTULO_SECAO[tipo]} ${v}: ${nome}`} config={`{ "tipo": "${tipo}", "variacao": ${v}, "tom": "${tom}" }`}>
+              <Item key={v} id={`${tipo}-${v}`} rotulo={`${ROTULO_SECAO[tipo]} ${v}: ${nome}`} config={`{ "tipo": "${tipo}", "variacao": ${v}, "tom": "${tom}" }`}>
                 <div className="relative">
                   <Componente c={{ ...c, layout: { ...c.layout, navbar: 2 } }} tom={tom} />
                 </div>
@@ -88,7 +88,7 @@ export default function PaginaVariacoes() {
         {VARIACOES.map((v) => {
           const { nome, Componente } = RODAPES[v];
           return (
-            <Item key={v} rotulo={`Rodapé ${v}: ${nome}`} config={`"rodape": { "variacao": ${v}, "tom": "${TOM_RODAPE[v]}" }`}>
+            <Item key={v} id={`rodape-${v}`} rotulo={`Rodapé ${v}: ${nome}`} config={`"rodape": { "variacao": ${v}, "tom": "${TOM_RODAPE[v]}" }`}>
               <Componente c={c} tom={TOM_RODAPE[v]} />
             </Item>
           );
@@ -107,7 +107,7 @@ function Grupo({ id, titulo, children }: { id: string; titulo: string; children:
   );
 }
 
-function Item({ rotulo, config, children }: { rotulo: string; config: string; children: React.ReactNode }) {
+function Item({ id, rotulo, config, children }: { id: string; rotulo: string; config: string; children: React.ReactNode }) {
   return (
     <div className="border-t border-linha">
       <div data-tom="escuro" className="sticky top-0 z-[70]">
@@ -116,7 +116,7 @@ function Item({ rotulo, config, children }: { rotulo: string; config: string; ch
           <code className="text-texto-suave">{config}</code>
         </div>
       </div>
-      {children}
+      <div data-captura={id}>{children}</div>
     </div>
   );
 }

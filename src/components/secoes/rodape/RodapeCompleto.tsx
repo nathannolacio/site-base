@@ -5,8 +5,7 @@ import type { SecaoProps } from "../tipos";
 import { Redes } from "./Redes";
 
 /**
- * Rodapé 1 — Completo
- * Quatro colunas: marca, navegação, contato e horários. Bom para sites com mais informação.
+ * Quatro colunas: marca, navegação, contato e horários.
  */
 export function RodapeCompleto({ c, tom }: SecaoProps) {
   const { negocio, contato, identidade } = c;

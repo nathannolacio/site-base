@@ -7,7 +7,6 @@ import type { NavbarProps } from "./tipos";
 import { useMenuAberto } from "./useRolagem";
 
 /**
- * Navbar 3 — Pílula flutuante
  * Barra arredondada solta do topo, com logo, WhatsApp e botão "Menu".
  * O menu abre em tela cheia, na cor da marca, em qualquer tamanho de tela.
  */

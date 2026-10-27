@@ -2,7 +2,7 @@ import { Estrelas } from "@/components/ui/Estrelas";
 import type { Cliente } from "@/content/conteudo";
 import { nota } from "@/lib/links";
 
-/** Linha com nota média, estrelas e link para o Google (compartilhada pelas variações). */
+/** Linha com nota média, estrelas e link para o Google. */
 export function ResumoNota({ c }: { c: Cliente }) {
   const { avaliacoes } = c;
   return (

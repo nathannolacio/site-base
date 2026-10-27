@@ -6,9 +6,7 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Serviços 1 — Grade de cards
  * Cards com ícone, nome e descrição. O primeiro card ocupa duas colunas para quebrar a monotonia.
- * Boa para 3 a 8 serviços sem fotos próprias.
  */
 export function ServicosGrade({ c, tom }: SecaoProps) {
   const { servicos, contato } = c;

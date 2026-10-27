@@ -10,7 +10,7 @@ import { WhatsappFlutuante } from "./extras/WhatsappFlutuante";
 export function Site({ c }: { c: Cliente }) {
   const { layout, contato } = c;
   const primeira = layout.secoes[0];
-  const Rodape = RODAPES[layout.rodape.variacao].Componente;
+  const Rodape = RODAPES[layout.rodape.variacao]?.Componente;
   const horario = contato.horarios
     .filter((h) => !/fechado/i.test(h.horas))
     .slice(0, 1)
@@ -34,11 +34,11 @@ export function Site({ c }: { c: Cliente }) {
       />
       <main id="conteudo">
         {layout.secoes.map((s, i) => {
-          const { Componente } = SECOES[s.tipo][s.variacao];
-          return <Componente key={`${s.tipo}-${i}`} c={c} tom={s.tom} />;
+          const Componente = SECOES[s.tipo]?.[s.variacao]?.Componente;
+          return Componente ? <Componente key={`${s.tipo}-${i}`} c={c} tom={s.tom} /> : null;
         })}
       </main>
-      <Rodape c={c} tom={layout.rodape.tom} />
+      {Rodape && <Rodape c={c} tom={layout.rodape.tom} />}
       {layout.whatsappFlutuante && <WhatsappFlutuante href={linkWhatsapp(contato.whatsapp, contato.mensagemWhatsapp)} />}
       {c.modoDemo && <BannerDemo nome={c.negocio.nome} />}
     </>

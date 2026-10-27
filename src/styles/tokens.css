@@ -1,7 +1,6 @@
 /*
- * TOKENS DA MARCA — o único arquivo de estilo que muda de um cliente para outro.
- * A skill /site-rapido reescreve estes valores a partir da identidade do Instagram.
- * Tudo no site (e a prancha /identidade) lê daqui.
+ * Identidade visual da marca: cores, fontes e formas.
+ * Todo o site lê estes valores; para mudar o visual, mude aqui.
  */
 :root {
   /* Cores */

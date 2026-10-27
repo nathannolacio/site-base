@@ -5,9 +5,7 @@ import { ANCORAS } from "@/content/conteudo";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Sobre 3 — Manifesto
  * Uma frase grande e centralizada que resume a marca, com três pilares embaixo.
- * Boa para marcas com propósito claro ou um jeito próprio de trabalhar.
  */
 export function SobreManifesto({ c, tom }: SecaoProps) {
   const { sobre, identidade } = c;

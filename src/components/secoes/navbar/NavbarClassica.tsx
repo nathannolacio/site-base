@@ -7,7 +7,6 @@ import type { NavbarProps } from "./tipos";
 import { useMenuAberto, useRolou } from "./useRolagem";
 
 /**
- * Navbar 1 — Clássica
  * Logo à esquerda, links no centro, WhatsApp à direita.
  * Transparente no topo; ganha fundo e sombra ao rolar. No celular, painel que desce.
  */

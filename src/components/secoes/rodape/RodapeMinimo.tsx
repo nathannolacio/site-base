@@ -4,8 +4,7 @@ import type { SecaoProps } from "../tipos";
 import { Redes } from "./Redes";
 
 /**
- * Rodapé 2 — Minimalista
- * Uma linha só: marca, redes e direitos. Para páginas que já fecham com um CTA forte.
+ * Uma linha só: marca, redes e direitos.
  */
 export function RodapeMinimo({ c, tom }: SecaoProps) {
   const { negocio, identidade, contato } = c;

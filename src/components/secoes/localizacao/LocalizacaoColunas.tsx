@@ -7,9 +7,7 @@ import type { SecaoProps } from "../tipos";
 import { Horarios, Mapa } from "./partes";
 
 /**
- * Localização 2 — Duas colunas
  * Tabela de horários e contatos de um lado, mapa emoldurado do outro.
- * Boa para horários complicados (vários turnos, plantões, dias diferentes).
  */
 export function LocalizacaoColunas({ c, tom }: SecaoProps) {
   const { contato } = c;

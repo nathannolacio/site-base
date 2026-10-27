@@ -6,9 +6,7 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Serviços 3 — Carrossel com fotos grandes
  * Cards altos com foto, rolando na horizontal. Arrasta no celular, setas no computador.
- * Boa quando cada serviço/produto tem foto bonita (confeitaria, moda, estética, pratos).
  */
 export function ServicosCarrossel({ c, tom }: SecaoProps) {
   const { servicos, contato, identidade } = c;

@@ -7,9 +7,7 @@ import { linkWhatsapp, nota } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Hero 3 — Imersiva
  * Foto ocupando a tela inteira, com véu na cor da marca e texto claro embaixo.
- * Boa para ambientes bonitos (restaurantes, estúdios, salões, pousadas).
  * Sempre usa tom escuro para o texto ficar legível sobre a foto.
  */
 export function HeroImersiva({ c }: SecaoProps) {

@@ -5,9 +5,7 @@ import { nota } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Avaliações 3 — Faixa rolando + nota em destaque
  * A nota média enorme abre a seção; os comentários passam numa faixa contínua embaixo.
- * Boa quando a nota é alta e há muitas avaliações (prova social forte).
  */
 export function AvaliacoesFaixa({ c, tom }: SecaoProps) {
   const { avaliacoes } = c;

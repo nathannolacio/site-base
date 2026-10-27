@@ -7,9 +7,7 @@ import { ANCORAS } from "@/content/conteudo";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Galeria 3 — Feed do Instagram
  * Grade quadrada como o perfil do Instagram, com o @ e botão para seguir.
- * Boa para negócios que vivem do Instagram (moda, beleza, confeitaria, tatuagem).
  * As fotos são as da galeria (não é integração ao vivo com o Instagram).
  */
 export function GaleriaFeed({ c, tom }: SecaoProps) {

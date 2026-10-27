@@ -9,10 +9,10 @@ import { LOCALIZACOES } from "./localizacao";
 import { CTAS } from "./cta";
 import { RODAPES } from "./rodape";
 
-type Entrada = { nome: string; Componente: (p: SecaoProps) => React.ReactNode };
+export type Entrada = { nome: string; Componente: (p: SecaoProps) => React.ReactNode };
 
-/** Todas as seções e suas variações. Para criar a 4ª variação de algo, registre aqui. */
-export const SECOES: Record<TipoSecao, Record<Variacao, Entrada>> = {
+/** Seções e variações disponíveis. */
+export const SECOES: Partial<Record<TipoSecao, Partial<Record<Variacao, Entrada>>>> = {
   hero: HEROS,
   sobre: SOBRES,
   servicos: SERVICOS,

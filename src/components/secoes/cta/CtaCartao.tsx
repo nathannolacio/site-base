@@ -6,9 +6,7 @@ import { linkWhatsapp } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
 /**
- * CTA 3 — Cartão centralizado
  * Um cartão na cor da marca, com os elementos de assinatura saindo pelas bordas.
- * O fechamento com mais personalidade; use em seção de tom "claro" ou "suave".
  */
 export function CtaCartao({ c, tom }: SecaoProps) {
   const { cta, contato, identidade } = c;

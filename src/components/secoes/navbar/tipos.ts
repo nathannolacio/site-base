@@ -10,6 +10,6 @@ export type NavbarProps = {
   horario: string;
   /** primeira seção é uma foto em tela cheia: texto claro enquanto estiver no topo */
   sobreFoto?: boolean;
-  /** usado em /variacoes: não fixa no topo da janela */
+  /** pré-visualização: não fixa no topo da janela */
   preview?: boolean;
 };

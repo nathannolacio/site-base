@@ -7,9 +7,7 @@ import { linkWhatsapp } from "@/lib/links";
 import { espacoNavbar, type SecaoProps } from "../tipos";
 
 /**
- * Hero 2 — Tipográfica
  * Sem foto. O nome da marca enorme é a imagem, composto com os elementos de assinatura.
- * Boa para marcas com fotos fracas ou de nome forte (escritórios, estúdios, profissionais).
  */
 export function HeroTipografica({ c, tom }: SecaoProps) {
   const { negocio, identidade, contato } = c;

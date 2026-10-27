@@ -8,10 +8,7 @@ import type { SecaoProps } from "../tipos";
 import { Horarios, Mapa } from "./partes";
 
 /**
- * Localização 3 — Bloco de contatos grandes
  * Os canais de contato viram links enormes e clicáveis; o mapa fica menor, ao lado.
- * Boa para negócios que atendem mais por WhatsApp/telefone do que no local.
- * Use com tom "marca" ou "escuro" para virar um bloco de cor.
  */
 export function LocalizacaoBloco({ c, tom }: SecaoProps) {
   const { contato, redes } = c;

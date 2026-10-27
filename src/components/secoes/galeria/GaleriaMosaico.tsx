@@ -27,8 +27,7 @@ function classes(total: number, i: number) {
 }
 
 /**
- * Galeria 1 — Mosaico
- * Fotos de tamanhos diferentes num grid irregular. Use de 4 a 8 fotos variadas.
+ * Fotos de tamanhos diferentes num grid irregular.
  */
 export function GaleriaMosaico({ c, tom }: SecaoProps) {
   const fotos = c.galeria.fotos.slice(0, 8);

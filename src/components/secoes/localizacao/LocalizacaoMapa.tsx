@@ -7,9 +7,8 @@ import type { SecaoProps } from "../tipos";
 import { Horarios, Mapa } from "./partes";
 
 /**
- * Localização 1 — Mapa grande + card flutuante
  * O mapa ocupa a largura toda; endereço, horários e botões ficam num card por cima
- * (no celular, o card vem logo abaixo do mapa). Boa para quem recebe clientes no local.
+ * (no celular, o card vem logo abaixo do mapa).
  */
 export function LocalizacaoMapa({ c, tom }: SecaoProps) {
   const { contato } = c;

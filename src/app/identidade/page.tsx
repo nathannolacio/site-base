@@ -9,7 +9,7 @@ import { Icone } from "@/components/ui/Icone";
 import { IconeInstagram, IconeWhatsapp } from "@/components/ui/IconesRedes";
 import { ROTULO_SECAO, SECOES, RODAPES } from "@/components/secoes/registro";
 import { NAVBARS } from "@/components/secoes/navbar";
-import { cliente as c } from "@/content/conteudo";
+import { cliente as c, verificarFoto } from "@/content/conteudo";
 import type { Tom } from "@/content/tipos";
 import { contraste, lerTokens } from "@/lib/tokens";
 import { PreviaCelular, PreviaDesktop } from "./Previa";
@@ -57,6 +57,8 @@ export default function PaginaIdentidade() {
     { rotulo: "Texto sobre o destaque", frente: t.hex["sobre-destaque"], fundo: t.hex["destaque"] },
   ].filter((p) => p.frente && p.fundo);
 
+  const origem = (c.identidade.origem ?? []).map((o) => ({ ...o, foto: verificarFoto({ src: o.src, alt: "" }) }));
+  const pendencias = c.pendencias ?? [];
   const icones = Array.from(new Set([...c.servicos.itens.map((s) => s.icone), ...c.sobre.pilares.map((p) => p.icone)]));
   const servico = c.servicos.itens[0];
   const avaliacao = c.avaliacoes.itens[0];
@@ -77,13 +79,13 @@ export default function PaginaIdentidade() {
       </header>
 
       {/* Origem */}
-      {c.identidade.origem.length > 0 && (
+      {origem.length > 0 && (
         <Bloco titulo="De onde veio" texto="Os posts e fotos da marca que guiaram as escolhas abaixo.">
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {c.identidade.origem.map((o, i) => (
+            {origem.map((o, i) => (
               <li key={i}>
                 <div className="relative aspect-square overflow-hidden rounded-base">
-                  <Foto foto={{ src: o.src || null, alt: `Post ${i + 1} do Instagram` }} sizes="20rem" />
+                  <Foto foto={{ src: o.foto.src, alt: `Post ${i + 1} do Instagram` }} sizes="20rem" />
                 </div>
                 <p className="mt-3 text-[0.95rem] text-texto-suave">{o.nota}</p>
               </li>
@@ -284,7 +286,7 @@ export default function PaginaIdentidade() {
               <li>Menu: {NAVBARS[c.layout.navbar].nome}</li>
               {c.layout.secoes.map((s, i) => (
                 <li key={i}>
-                  {ROTULO_SECAO[s.tipo]}: {SECOES[s.tipo][s.variacao].nome}
+                  {ROTULO_SECAO[s.tipo]}: {SECOES[s.tipo]?.[s.variacao]?.nome}
                 </li>
               ))}
               <li>Rodapé: {RODAPES[c.layout.rodape.variacao].nome}</li>
@@ -292,9 +294,9 @@ export default function PaginaIdentidade() {
           </div>
           <div className="rounded-grande border-2 border-destaque p-7">
             <h3 className="font-semibold">A confirmar com o cliente</h3>
-            {c.pendencias.length ? (
+            {pendencias.length ? (
               <ul className="mt-3 flex list-disc flex-col gap-1.5 pl-5 text-texto-suave">
-                {c.pendencias.map((p) => <li key={p}>{p}</li>)}
+                {pendencias.map((p) => <li key={p}>{p}</li>)}
               </ul>
             ) : (
               <p className="mt-3 text-texto-suave">Nada pendente.</p>

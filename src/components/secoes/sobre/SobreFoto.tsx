@@ -5,9 +5,7 @@ import { ANCORAS } from "@/content/conteudo";
 import type { SecaoProps } from "../tipos";
 
 /**
- * Sobre 1 — Foto com moldura
  * Foto com o recorte da marca ao lado do texto da história.
- * Boa quando há uma foto do dono, da equipe ou do processo.
  */
 export function SobreFoto({ c, tom }: SecaoProps) {
   const { sobre, identidade } = c;
