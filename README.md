@@ -88,9 +88,9 @@ Enquanto uma foto não existe, o site mostra um espaço reservado nas cores da m
 
 | Seção | 1 | 2 | 3 |
 |---|---|---|---|
-| Navbar | Clássica | Centralizada (faixa com telefone) | Pílula flutuante (menu em tela cheia) |
-| Hero | Dividida (foto recortada) | Tipográfica (sem foto) | Imersiva (foto em tela cheia) |
-| Sobre | Foto com moldura | Números | Manifesto + pilares |
+| Navbar | Clássica | Centralizada (faixa com telefone) | Pílula flutuante (links na pílula; menu em tela cheia no celular) |
+| Hero | Dividida (composição com fotos) | Vitrine (fileira de fotos) | Imersiva (foto em tela cheia) |
+| Sobre | Colagem com fotos | Números | Manifesto + pilares |
 | Serviços | Grade de cards | Lista editorial | Carrossel com fotos |
 | Galeria | Mosaico | Faixa contínua | Feed do Instagram |
 | Avaliações | Grade (mural) | Destaque único | Faixa + nota grande |
@@ -99,6 +99,20 @@ Enquanto uma foto não existe, o site mostra um espaço reservado nas cores da m
 | Rodapé | Completo | Minimalista | Nome gigante |
 
 Para criar uma 4ª variação: crie o componente na pasta da seção, registre no `index.ts` da pasta, no tipo `Variacao` (`src/content/tipos.ts`) e na tabela `COMPONENTES` de `scripts/entrega.mjs`.
+
+## Elementos gráficos
+
+`identidade.estilo` no `cliente.json` define o desenho dos detalhes soltos (forma de fundo, detalhe, selo girando e etiquetas sobre fotos):
+
+| Estilo | Desenho | Combina com |
+|---|---|---|
+| `organico` | formas arredondadas, folhas | cafés, padarias, floriculturas, pet shops |
+| `geometrico` | círculos, meias-luas, blocos sólidos | escolas, academias, lojas infantis, eventos |
+| `linear` | traço fino, arcos, brilhos | clínicas, estética, odontologia, advocacia |
+| `artesanal` | carimbo, pontilhado, traço à mão | confeitarias, cervejarias, ateliês, restaurantes |
+| `moderno` | grade técnica, cantos retos | barbearias, tatuagem, oficinas, tecnologia |
+
+`identidade.icone` é o ícone Lucide do negócio (vai no selo e nas etiquetas) e `identidade.seloTexto` é a frase que gira no selo (vazia = sem selo).
 
 ## Modo demo
 

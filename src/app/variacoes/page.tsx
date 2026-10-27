@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { NAVBARS } from "@/components/secoes/navbar";
+import { HEROS } from "@/components/secoes/hero";
+import { Chip, Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { RODAPES, ROTULO_SECAO, SECOES } from "@/components/secoes/registro";
 import { cliente as c, itensDoMenu } from "@/content/conteudo";
-import type { TipoSecao, Tom, Variacao } from "@/content/tipos";
+import type { EstiloGrafico, TipoSecao, Tom, Variacao } from "@/content/tipos";
 import { linkTelefone, linkWhatsapp } from "@/lib/links";
 
 export const metadata: Metadata = {
@@ -22,6 +24,14 @@ const TOM_PADRAO: Record<TipoSecao, Record<Variacao, Tom>> = {
   localizacao: { 1: "claro", 2: "claro", 3: "marca" },
   cta: { 1: "marca", 2: "escuro", 3: "suave" },
 };
+const ESTILOS: { id: EstiloGrafico; nome: string; nichos: string }[] = [
+  { id: "organico", nome: "Orgânico", nichos: "cafés, padarias, floriculturas, pet shops, produtos naturais" },
+  { id: "geometrico", nome: "Geométrico", nichos: "escolas, academias, lojas infantis, agências, eventos" },
+  { id: "linear", nome: "Linear", nichos: "clínicas, estética, odontologia, joalherias, advocacia" },
+  { id: "artesanal", nome: "Artesanal", nichos: "confeitarias, cervejarias, ateliês, restaurantes de bairro" },
+  { id: "moderno", nome: "Moderno", nichos: "barbearias, estúdios de tatuagem, oficinas, tecnologia, arquitetura" },
+];
+
 const TOM_RODAPE: Record<Variacao, Tom> = { 1: "suave", 2: "claro", 3: "escuro" };
 
 export default function PaginaVariacoes() {
@@ -46,14 +56,38 @@ export default function PaginaVariacoes() {
             Para usar uma variação, informe o número em <code className="rounded-pequeno bg-cartao px-1.5 py-0.5 text-[0.9em]">layout</code> no cliente.json.
           </p>
           <nav aria-label="Seções do catálogo" className="mt-8 flex flex-wrap gap-2">
-            {["navbar", ...tipos, "rodape"].map((t) => (
+            {["estilos", "navbar", ...tipos, "rodape"].map((t) => (
               <a key={t} href={`#cat-${t}`} className="rounded-botao border border-linha px-4 py-2 text-sm font-medium hover:bg-cartao">
-                {t === "navbar" ? "Navbar" : t === "rodape" ? "Rodapé" : ROTULO_SECAO[t as TipoSecao]}
+                {t === "estilos" ? "Elementos gráficos" : t === "navbar" ? "Navbar" : t === "rodape" ? "Rodapé" : ROTULO_SECAO[t as TipoSecao]}
               </a>
             ))}
           </nav>
         </div>
       </header>
+
+      <Grupo id="estilos" titulo="Elementos gráficos (identidade.estilo)">
+        {ESTILOS.map((e) => {
+          const ce = { ...c, identidade: { ...c.identidade, estilo: e.id }, layout: { ...c.layout, navbar: 2 as Variacao } };
+          const Hero = HEROS[1].Componente;
+          return (
+            <Item key={e.id} id={`estilo-${e.id}`} rotulo={`${e.nome}: ${e.nichos}`} config={`"estilo": "${e.id}"`}>
+              <div data-tom="suave" className="border-b border-linha">
+                <div className="container-site grid grid-cols-2 items-center gap-6 py-10 md:grid-cols-4">
+                  <div className="grid place-items-center"><Forma estilo={e.id} className="w-32" /></div>
+                  <div className="grid place-items-center"><Detalhe estilo={e.id} className="size-16" /></div>
+                  <div className="grid place-items-center">
+                    <SeloCircular estilo={e.id} texto={c.identidade.seloTexto} icone={c.identidade.icone} className="w-32" />
+                  </div>
+                  <div className="grid place-items-center">
+                    <Chip estilo={e.id} icone="Star" titulo="4,9 no Google" texto="312 avaliações" />
+                  </div>
+                </div>
+              </div>
+              <Hero c={ce} tom="claro" />
+            </Item>
+          );
+        })}
+      </Grupo>
 
       <Grupo id="navbar" titulo="Navbar">
         {VARIACOES.map((v) => {

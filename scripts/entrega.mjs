@@ -37,7 +37,7 @@ if (fs.existsSync(DESTINO) && fs.readdirSync(DESTINO).length > 0) {
 /* ---------- 1. Quais componentes o cliente usa ---------- */
 const COMPONENTES = {
   navbar: { 1: "NavbarClassica", 2: "NavbarCentralizada", 3: "NavbarPilula" },
-  hero: { 1: "HeroDividida", 2: "HeroTipografica", 3: "HeroImersiva" },
+  hero: { 1: "HeroDividida", 2: "HeroVitrine", 3: "HeroImersiva" },
   sobre: { 1: "SobreFoto", 2: "SobreNumeros", 3: "SobreManifesto" },
   servicos: { 1: "ServicosGrade", 2: "ServicosLista", 3: "ServicosCarrossel" },
   galeria: { 1: "GaleriaMosaico", 2: "GaleriaFaixa", 3: "GaleriaFeed" },

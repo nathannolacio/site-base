@@ -13,7 +13,8 @@ export type TipoSecao =
   | "cta";
 
 export type Recorte = "reto" | "arco" | "circulo" | "pilula" | "blob" | "inclinado" | "folha";
-export type Assinatura = "pontos" | "ondas" | "arcos" | "blob" | "selo" | "nenhuma";
+/** Linguagem dos elementos gráficos soltos (formas, detalhes, selo, etiquetas sobre fotos). */
+export type EstiloGrafico = "organico" | "geometrico" | "linear" | "artesanal" | "moderno";
 
 /** src = null quando o arquivo ainda não existe em /public (o site mostra um espaço reservado). */
 export type Foto = { src: string | null; alt: string };
@@ -36,7 +37,11 @@ export type ClienteJson = {
   identidade: {
     logo?: string;
     recorte: Recorte;
-    assinatura: Assinatura;
+    estilo: EstiloGrafico;
+    /** ícone Lucide que representa o negócio (ex.: "Croissant", "Scissors", "Stethoscope") */
+    icone: string;
+    /** frase curta que gira no selo circular; vazia = sem selo */
+    seloTexto: string;
     // @template
     origem?: { src: string; nota: string }[];
     // @fim-template

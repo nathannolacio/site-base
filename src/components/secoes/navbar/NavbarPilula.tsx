@@ -7,8 +7,8 @@ import type { NavbarProps } from "./tipos";
 import { useMenuAberto } from "./useRolagem";
 
 /**
- * Barra arredondada solta do topo, com logo, WhatsApp e botão "Menu".
- * O menu abre em tela cheia, na cor da marca, em qualquer tamanho de tela.
+ * Barra arredondada solta do topo. No computador, os links ficam dentro da pílula;
+ * no celular, o botão "Menu" abre a navegação em tela cheia, na cor da marca.
  */
 export function NavbarPilula({ nome, logo, itens, whatsappHref, telefone, telefoneHref, horario, preview }: NavbarProps) {
   const [aberto, setAberto] = useState(false);
@@ -21,27 +21,48 @@ export function NavbarPilula({ nome, logo, itens, whatsappHref, telefone, telefo
         <nav
           data-tom="claro"
           aria-label="Principal"
-          className="mx-auto flex h-16 max-w-3xl items-center justify-between gap-3 rounded-botao border border-linha bg-[color-mix(in_oklab,var(--fundo)_86%,transparent)]! pr-2 pl-6 shadow-marca backdrop-blur-md"
+          className="mx-auto flex h-16 max-w-3xl items-center justify-between gap-3 rounded-botao border border-linha bg-[color-mix(in_oklab,var(--fundo)_86%,transparent)]! pr-2 pl-6 shadow-marca backdrop-blur-md lg:max-w-5xl"
         >
-          <a href="#inicio">
+          <a href="#inicio" className="shrink-0">
             <Logo nome={nome} logo={logo} tamanho="text-xl" />
           </a>
+
+          {/* computador: os links ficam dentro da pílula */}
+          <ul className="hidden items-center gap-1 lg:flex">
+            {itens.map((i) => (
+              <li key={i.href}>
+                <a href={i.href} className="block rounded-botao px-4 py-2 text-[0.95rem] font-medium transition hover:bg-cartao">
+                  {i.rotulo}
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <div className="flex items-center gap-1.5">
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chamar no WhatsApp"
-              className="grid size-12 place-items-center rounded-botao text-acento transition hover:bg-cartao"
+              className="grid size-12 place-items-center rounded-botao text-acento transition hover:bg-cartao lg:hidden"
             >
               <IconeWhatsapp className="size-[22px]" />
             </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden h-12 items-center gap-2 rounded-botao bg-acento px-5 font-semibold text-sobre-acento transition hover:brightness-110 lg:inline-flex"
+            >
+              <IconeWhatsapp className="size-5" /> WhatsApp
+            </a>
+            {/* celular: botão Menu abre a navegação em tela cheia */}
             <button
               type="button"
               onClick={() => setAberto(true)}
               aria-expanded={aberto}
               aria-controls="menu-pilula"
-              className="h-12 rounded-botao bg-acento px-6 font-semibold text-sobre-acento transition hover:brightness-110"
+              className="h-12 rounded-botao bg-acento px-6 font-semibold text-sobre-acento transition hover:brightness-110 lg:hidden"
             >
               Menu
             </button>
@@ -56,7 +77,7 @@ export function NavbarPilula({ nome, logo, itens, whatsappHref, telefone, telefo
         aria-modal="true"
         aria-label="Menu"
         hidden={!aberto}
-        className="fixed inset-0 z-[60] overflow-y-auto"
+        className="fixed inset-0 z-[60] overflow-y-auto lg:hidden"
       >
         <div className="container-site flex min-h-full flex-col py-6">
           <div className="flex items-center justify-between">

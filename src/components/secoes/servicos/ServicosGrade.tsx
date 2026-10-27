@@ -1,5 +1,6 @@
 import { Botao } from "@/components/ui/Botao";
 import { Icone } from "@/components/ui/Icone";
+import { Forma } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
 import { ANCORAS } from "@/content/conteudo";
 import { linkWhatsapp } from "@/lib/links";
@@ -22,19 +23,22 @@ export function ServicosGrade({ c, tom }: SecaoProps) {
           {servicos.itens.map((s, i) => (
             <li
               key={s.nome}
-              className={`flex flex-col rounded-grande bg-cartao p-7 md:p-8 ${
+              className={`relative flex flex-col overflow-hidden rounded-grande bg-cartao p-7 md:p-8 ${
                 i === 0 && servicos.itens.length % 3 !== 0 ? "lg:col-span-2" : ""
               } ${i === 0 ? "bg-acento! text-sobre-acento" : ""}`}
             >
+              {i === 0 && (
+                <Forma estilo={c.identidade.estilo} cor="var(--sobre-acento)" className="absolute -right-12 -bottom-14 w-56 opacity-15" />
+              )}
               <span
-                className={`grid size-14 place-items-center rounded-base ${
+                className={`relative grid size-14 place-items-center rounded-base ${
                   i === 0 ? "bg-[color-mix(in_oklab,var(--sobre-acento)_14%,transparent)]" : "bg-fundo text-acento"
                 }`}
               >
                 <Icone nome={s.icone} className="size-7" />
               </span>
-              <h3 className="titulo t-3 mt-8">{s.nome}</h3>
-              <p className={`mt-2.5 ${i === 0 ? "opacity-85" : "text-texto-suave"}`}>{s.descricao}</p>
+              <h3 className="titulo t-3 relative mt-8">{s.nome}</h3>
+              <p className={`relative mt-2.5 ${i === 0 ? "opacity-85" : "text-texto-suave"}`}>{s.descricao}</p>
               {s.preco && <p className="mt-auto pt-6 font-semibold">{s.preco}</p>}
             </li>
           ))}

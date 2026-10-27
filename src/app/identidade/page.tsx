@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Clock, MapPin, Phone } from "lucide-react";
-import { Assinatura } from "@/components/ui/Assinatura";
+import { Chip, Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { Botao } from "@/components/ui/Botao";
 import { Estrelas } from "@/components/ui/Estrelas";
 import { Foto } from "@/components/ui/Foto";
@@ -38,13 +38,12 @@ const RECORTES: Record<string, string> = {
   folha: "folha",
 };
 
-const ASSINATURAS: Record<string, string> = {
-  pontos: "grade de pontos",
-  ondas: "ondas",
-  arcos: "arcos concêntricos",
-  blob: "forma orgânica",
-  selo: "selo recortado",
-  nenhuma: "sem elemento gráfico",
+const ESTILOS: Record<string, string> = {
+  organico: "orgânico (formas arredondadas e folhas)",
+  geometrico: "geométrico (círculos, meias-luas e blocos sólidos)",
+  linear: "linear (traço fino, arcos e brilhos)",
+  artesanal: "artesanal (carimbo e traço desenhado à mão)",
+  moderno: "moderno (grade técnica e cantos retos)",
 };
 
 export default function PaginaIdentidade() {
@@ -67,7 +66,8 @@ export default function PaginaIdentidade() {
     <main data-tom="claro" className="min-h-dvh pb-24">
       {/* Abertura */}
       <header data-tom="marca" className="relative overflow-hidden">
-        <Assinatura tipo={c.identidade.assinatura} className="absolute -right-10 -bottom-12 w-56 opacity-80 md:w-80" />
+        <Forma estilo={c.identidade.estilo} cor="var(--cor-marca-contraste)" className="absolute -right-16 -bottom-20 w-64 opacity-15 md:w-96" />
+        <SeloCircular estilo={c.identidade.estilo} texto={c.identidade.seloTexto} icone={c.identidade.icone} className="absolute top-10 right-6 hidden w-32 md:block lg:right-16 lg:w-40" />
         <div className="container-site relative py-16 md:py-24">
           <p className="text-texto-suave">Proposta de identidade visual para o site</p>
           <h1 className="titulo t-gigante mt-3">{c.negocio.nome}</h1>
@@ -246,21 +246,47 @@ export default function PaginaIdentidade() {
         </ul>
       </Bloco>
 
-      {/* Forma e assinatura */}
+      {/* Elementos gráficos */}
       <Bloco
-        titulo="Forma e assinatura"
-        texto={`Fotos com recorte em ${RECORTES[c.identidade.recorte]} e ${ASSINATURAS[c.identidade.assinatura]} como elemento gráfico da marca.`}
+        titulo="Elementos gráficos"
+        texto={`Estilo ${ESTILOS[c.identidade.estilo]}, com fotos em recorte de ${RECORTES[c.identidade.recorte]}. São os detalhes soltos que aparecem por cima e em volta das fotos.`}
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-xs">
-            <Foto foto={c.fotos.hero} recorte={c.identidade.recorte} sizes="20rem" />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <Peca rotulo="Forma de fundo">
+            <Forma estilo={c.identidade.estilo} className="w-40" />
+          </Peca>
+          <Peca rotulo="Detalhe">
+            <Detalhe estilo={c.identidade.estilo} className="size-20" />
+          </Peca>
+          <Peca rotulo="Selo girando">
+            {c.identidade.seloTexto ? (
+              <SeloCircular estilo={c.identidade.estilo} texto={c.identidade.seloTexto} icone={c.identidade.icone} className="w-40" />
+            ) : (
+              <span className="text-texto-suave">Sem selo</span>
+            )}
+          </Peca>
+          <Peca rotulo="Etiqueta sobre foto">
+            <div className="flex flex-col items-start gap-4">
+              <Chip estilo={c.identidade.estilo} icone="Star" titulo="4,9 no Google" texto="312 avaliações" />
+              {c.negocio.selo && <Chip estilo={c.identidade.estilo} icone={c.identidade.icone} titulo={c.negocio.selo} />}
+            </div>
+          </Peca>
+        </div>
+
+        <h3 className="titulo t-3 mt-14">Tudo junto</h3>
+        <div className="mt-6 grid items-center gap-10 md:grid-cols-2">
+          <div className="relative mx-auto w-full max-w-sm pb-10">
+            <Forma estilo={c.identidade.estilo} className="absolute -bottom-6 -left-10 w-[60%]" />
+            <div className="relative ml-auto aspect-[4/5] w-[85%]">
+              <Foto foto={c.fotos.hero} recorte={c.identidade.recorte} sizes="20rem" />
+            </div>
+            <SeloCircular estilo={c.identidade.estilo} texto={c.identidade.seloTexto} icone={c.identidade.icone} className="absolute -top-6 right-0 w-28" />
+            {c.negocio.selo && <Chip estilo={c.identidade.estilo} icone={c.identidade.icone} titulo={c.negocio.selo} className="absolute bottom-16 left-0" />}
           </div>
-          <div className="grid place-items-center rounded-grande bg-cartao p-10">
-            <Assinatura tipo={c.identidade.assinatura} className="w-40" />
-          </div>
-          <div data-tom="marca" className="relative grid place-items-center overflow-hidden rounded-grande p-10">
-            <Assinatura tipo={c.identidade.assinatura} className="absolute -top-6 -left-6 w-32" />
-            <p className="titulo t-3 relative text-center">{c.cta.titulo}</p>
+          <div data-tom="marca" className="relative grid min-h-72 place-items-center overflow-hidden rounded-grande p-10">
+            <Forma estilo={c.identidade.estilo} cor="var(--cor-marca-contraste)" className="absolute -right-12 -bottom-16 w-64 opacity-15" />
+            <Detalhe estilo={c.identidade.estilo} className="absolute top-6 left-6 size-12" />
+            <p className="titulo t-3 relative max-w-[20ch] text-center">{c.cta.titulo}</p>
           </div>
         </div>
       </Bloco>
@@ -317,6 +343,15 @@ function Bloco({ titulo, texto, children }: { titulo: string; texto?: string; ch
       </div>
       {children}
     </section>
+  );
+}
+
+function Peca({ rotulo, children }: { rotulo: string; children: ReactNode }) {
+  return (
+    <div className="flex flex-col overflow-hidden rounded-grande border border-linha">
+      <div className="grid min-h-56 flex-1 place-items-center bg-cartao p-8">{children}</div>
+      <p className="px-5 py-3 text-sm font-medium">{rotulo}</p>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { IconeInstagram, IconeWhatsapp } from "@/components/ui/IconesRedes";
+import { Forma } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
 import { ANCORAS } from "@/content/conteudo";
 import { linkMapa, linkTelefone, linkWhatsapp, enderecoCompleto } from "@/lib/links";
@@ -16,7 +17,8 @@ export function LocalizacaoBloco({ c, tom }: SecaoProps) {
 
   return (
     <Secao id={ANCORAS.localizacao} tom={tom}>
-      <div className="container-site">
+      <Forma estilo={c.identidade.estilo} cor="var(--texto)" className="absolute -top-16 -right-20 w-72 opacity-[0.07] md:w-[28rem]" />
+      <div className="container-site relative">
         <h2 className="titulo t-2 max-w-[16ch]">Fale com a gente</h2>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">

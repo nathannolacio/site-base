@@ -17,7 +17,9 @@
   "identidade": {
     "logo": "",
     "recorte": "arco",
-    "assinatura": "pontos",
+    "estilo": "artesanal",
+    "icone": "Croissant",
+    "seloTexto": "Fermentação natural ✦ Cambuí ✦ Desde 2019 ✦",
     "origem": [
       {
         "src": "/cliente/instagram/post-1.jpg",

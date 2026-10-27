@@ -1,3 +1,4 @@
+import { Detalhe } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
 import { ANCORAS } from "@/content/conteudo";
 import type { SecaoProps } from "../tipos";
@@ -11,7 +12,10 @@ export function SobreNumeros({ c, tom }: SecaoProps) {
     <Secao id={ANCORAS.sobre} tom={tom}>
       <div className="container-site">
         <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:gap-16">
-          <h2 className="titulo t-2 max-w-[16ch]">{sobre.titulo}</h2>
+          <div>
+            <Detalhe estilo={c.identidade.estilo} className="mb-6 size-11" />
+            <h2 className="titulo t-2 max-w-[16ch]">{sobre.titulo}</h2>
+          </div>
           <p className="t-lead medida text-texto-suave md:pt-2">{sobre.texto}</p>
         </div>
 

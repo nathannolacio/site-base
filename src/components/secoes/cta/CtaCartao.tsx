@@ -1,4 +1,4 @@
-import { Assinatura } from "@/components/ui/Assinatura";
+import { Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { Botao } from "@/components/ui/Botao";
 import { Secao } from "@/components/ui/Secao";
 import { ANCORAS } from "@/content/conteudo";
@@ -13,12 +13,14 @@ export function CtaCartao({ c, tom }: SecaoProps) {
   return (
     <Secao id={ANCORAS.cta} tom={tom}>
       <div className="container-site">
-        <div data-tom="marca" className="relative overflow-hidden rounded-grande px-6 pt-24 pb-16 text-center sm:px-12 md:py-24">
-          <Assinatura tipo={identidade.assinatura} className="absolute -top-8 -left-8 w-28 opacity-90 md:-top-10 md:-left-10 md:w-56" />
-          <Assinatura
-            tipo={identidade.assinatura === "pontos" ? "arcos" : "pontos"}
-            cor="var(--cor-marca-contraste)"
-            className="absolute -right-8 -bottom-8 w-36 opacity-20 md:w-48"
+        <div data-tom="marca" className="relative overflow-hidden rounded-grande px-6 pt-28 pb-16 text-center sm:px-12 md:py-24">
+          <Forma estilo={identidade.estilo} cor="var(--cor-marca-contraste)" className="absolute -right-16 -bottom-20 w-64 opacity-15 md:w-96" />
+          <Detalhe estilo={identidade.estilo} className="absolute top-8 left-8 size-12 md:size-16" />
+          <SeloCircular
+            estilo={identidade.estilo}
+            texto={identidade.seloTexto}
+            icone={identidade.icone}
+            className="absolute top-6 right-6 hidden w-28 md:block lg:w-32"
           />
           <div className="relative">
             <h2 className="titulo t-1 mx-auto max-w-[18ch]">{cta.titulo}</h2>

@@ -1,6 +1,7 @@
 import { Botao } from "@/components/ui/Botao";
 import { Estrelas } from "@/components/ui/Estrelas";
 import { Foto } from "@/components/ui/Foto";
+import { SeloCircular } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
 import { ANCORAS } from "@/content/conteudo";
 import { linkWhatsapp, nota } from "@/lib/links";
@@ -11,7 +12,7 @@ import type { SecaoProps } from "../tipos";
  * Sempre usa tom escuro para o texto ficar legível sobre a foto.
  */
 export function HeroImersiva({ c }: SecaoProps) {
-  const { negocio, avaliacoes, contato } = c;
+  const { negocio, avaliacoes, contato, identidade } = c;
   return (
     <Secao id={ANCORAS.hero} tom="escuro" espaco={false} className="flex min-h-[100svh] items-end">
       <div className="absolute inset-0">
@@ -41,6 +42,13 @@ export function HeroImersiva({ c }: SecaoProps) {
           </div>
         </div>
 
+        <div className="flex items-end gap-5 lg:flex-col lg:items-end">
+        <SeloCircular
+          estilo={identidade.estilo}
+          texto={identidade.seloTexto}
+          icone={identidade.icone}
+          className="order-2 w-24 shrink-0 drop-shadow-xl md:w-32 lg:order-none"
+        />
         {avaliacoes.itens.length > 0 && (
           <a
             href={`#${ANCORAS.avaliacoes}`}
@@ -53,6 +61,7 @@ export function HeroImersiva({ c }: SecaoProps) {
             </span>
           </a>
         )}
+        </div>
       </div>
     </Secao>
   );
