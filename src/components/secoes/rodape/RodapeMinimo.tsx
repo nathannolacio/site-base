@@ -18,7 +18,10 @@ export function RodapeMinimo({ c, tom }: SecaoProps) {
           </span>
         </div>
         <Redes c={c} />
-        <p className="text-sm text-texto-suave">© {ANO} {negocio.nome}</p>
+        <p className="text-sm text-texto-suave">
+          © {ANO} {negocio.nome}
+          {negocio.registro && <span className="block text-texto md:text-right">{negocio.registro}</span>}
+        </p>
       </div>
     </footer>
   );

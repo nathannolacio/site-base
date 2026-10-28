@@ -1,10 +1,11 @@
 import { Estrelas } from "@/components/ui/Estrelas";
-import type { Cliente } from "@/content/conteudo";
+import { temNotaGoogle, type Cliente } from "@/content/conteudo";
 import { nota } from "@/lib/links";
 
 /** Linha com nota média, estrelas e link para o Google. */
 export function ResumoNota({ c }: { c: Cliente }) {
   const { avaliacoes } = c;
+  if (!temNotaGoogle(c)) return null;
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
       <span className="titulo text-4xl">{nota(avaliacoes.nota)}</span>

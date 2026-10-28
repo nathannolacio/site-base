@@ -16,6 +16,7 @@ export function RodapeCompleto({ c, tom }: SecaoProps) {
           <div>
             <Logo nome={negocio.nome} logo={identidade.logo} tamanho="text-3xl" />
             <p className="mt-5 max-w-[34ch] text-texto-suave">{negocio.descricao}</p>
+            {negocio.registro && <p className="mt-3 font-medium">{negocio.registro}</p>}
             <Redes c={c} className="mt-6" />
           </div>
           <nav aria-label="Rodapé">

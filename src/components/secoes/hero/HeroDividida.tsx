@@ -3,7 +3,7 @@ import { Estrelas } from "@/components/ui/Estrelas";
 import { Foto } from "@/components/ui/Foto";
 import { Chip, Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
-import { ANCORAS } from "@/content/conteudo";
+import { ANCORAS, linkSecundario, temNotaGoogle } from "@/content/conteudo";
 import { linkWhatsapp, nota } from "@/lib/links";
 import { espacoNavbar, type SecaoProps } from "../tipos";
 
@@ -14,6 +14,7 @@ import { espacoNavbar, type SecaoProps } from "../tipos";
 export function HeroDividida({ c, tom }: SecaoProps) {
   const { negocio, identidade, avaliacoes, contato } = c;
   const segunda = c.galeria.fotos[0];
+  const secundario = linkSecundario(c);
   return (
     <Secao id={ANCORAS.hero} tom={tom} espaco={false} className={`${espacoNavbar(c)} pb-20 md:pb-28`}>
       <div className="container-site grid items-center gap-16 lg:grid-cols-[1.02fr_1fr] lg:gap-14">
@@ -25,11 +26,14 @@ export function HeroDividida({ c, tom }: SecaoProps) {
             <Botao href={linkWhatsapp(contato.whatsapp, contato.mensagemWhatsapp)} whatsapp grande>
               Chamar no WhatsApp
             </Botao>
-            <Botao href={`#${ANCORAS.servicos}`} estilo="texto">
-              Ver o que fazemos
+            <Botao href={secundario.href} estilo="texto">
+              {secundario.rotulo}
             </Botao>
           </div>
-          {avaliacoes.itens.length > 0 && (
+          {negocio.registro && !temNotaGoogle(c) && (
+            <p className="mt-12 w-fit border-t border-linha pt-6 text-[0.95rem] text-texto-suave">{negocio.registro}</p>
+          )}
+          {temNotaGoogle(c) && (
             <a
               href={`#${ANCORAS.avaliacoes}`}
               className="mt-12 flex w-fit items-center gap-4 border-t border-linha pt-6 text-[0.95rem] text-texto-suave hover:text-texto"

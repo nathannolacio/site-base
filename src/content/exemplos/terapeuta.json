@@ -1,0 +1,136 @@
+{
+  "modoDemo": true,
+  "pendencias": [
+    "Número do CRP",
+    "WhatsApp e endereço do consultório",
+    "Fotos profissionais (retrato e consultório)"
+  ],
+  "negocio": {
+    "nome": "Helena Prado",
+    "segmento": "Psicóloga",
+    "cidade": "São Paulo-SP",
+    "frase": "Um espaço seguro para cuidar da sua saúde emocional",
+    "descricao": "Psicoterapia para adultos, online e presencial em Pinheiros, com base na Terapia Cognitivo-Comportamental.",
+    "selo": "Atendimento online e presencial",
+    "registro": "Psicóloga · CRP 06/000000"
+  },
+  "identidade": {
+    "logo": "",
+    "recorte": "arco",
+    "estilo": "linear",
+    "icone": "Sprout",
+    "seloTexto": "Psicoterapia ✦ Online e presencial ✦ Pinheiros ✦",
+    "origem": []
+  },
+  "contato": {
+    "whatsapp": "5511900000000",
+    "mensagemWhatsapp": "Olá, Helena! Vi seu site e gostaria de saber mais sobre a terapia.",
+    "telefone": "(11) 90000-0000",
+    "email": "",
+    "endereco": "Rua Exemplo, 456",
+    "bairroCidade": "Pinheiros, São Paulo-SP",
+    "mapsUrl": "",
+    "horarios": [
+      { "dias": "Segunda a sexta", "horas": "8h às 20h" },
+      { "dias": "Sábado", "horas": "8h às 12h" }
+    ]
+  },
+  "redes": {
+    "instagram": { "usuario": "helenaprado.psi", "url": "https://instagram.com/" },
+    "facebook": "",
+    "tiktok": ""
+  },
+  "fotos": {
+    "hero": { "src": "/cliente/hero.jpg", "alt": "Retrato da psicóloga Helena Prado no consultório" },
+    "sobre": { "src": "/cliente/sobre.jpg", "alt": "Helena sentada na poltrona do consultório" },
+    "cta": { "src": "/cliente/cta.jpg", "alt": "Detalhe do consultório com plantas e luz natural" }
+  },
+  "sobre": {
+    "titulo": "Prazer, eu sou a Helena",
+    "texto": "Sou psicóloga clínica e atendo adultos há 8 anos. Escolhi a Terapia Cognitivo-Comportamental por ser uma abordagem prática e colaborativa: a gente entende junto o que está acontecendo e constrói caminhos possíveis para a sua rotina.",
+    "manifesto": "Cuidar da saúde emocional é um processo, e você não precisa passar por ele sozinha ou sozinho.",
+    "pilares": [
+      { "icone": "GraduationCap", "titulo": "Especialização em TCC", "texto": "" },
+      { "icone": "Laptop", "titulo": "Online e presencial", "texto": "" },
+      { "icone": "ShieldCheck", "titulo": "Sigilo em cada sessão", "texto": "" }
+    ],
+    "numeros": [{ "valor": "8 anos", "rotulo": "de atendimento clínico" }]
+  },
+  "servicos": { "titulo": "", "intro": "", "itens": [] },
+  "galeria": {
+    "titulo": "O consultório",
+    "fotos": [
+      { "src": "/cliente/galeria-1.jpg", "alt": "Sala de atendimento com duas poltronas" },
+      { "src": "/cliente/galeria-2.jpg", "alt": "Estante com livros e plantas" },
+      { "src": "/cliente/galeria-3.jpg", "alt": "Recepção do consultório" }
+    ]
+  },
+  "avaliacoes": { "titulo": "Depoimentos", "nota": 0, "total": 0, "fonteUrl": "", "itens": [] },
+  "abordagem": {
+    "titulo": "Entender o que você sente e mudar o que te prende",
+    "nome": "Terapia Cognitivo-Comportamental (TCC)",
+    "texto": "A TCC olha para a forma como pensamentos, emoções e comportamentos se influenciam. Nas sessões, a gente identifica os padrões que trazem sofrimento e pratica, no seu ritmo, outras formas de lidar com eles.",
+    "citacao": "Meu trabalho é caminhar ao seu lado enquanto você entende seus padrões e encontra formas mais leves de lidar com eles.",
+    "pilares": [
+      { "icone": "HeartHandshake", "titulo": "Escuta acolhedora", "texto": "Um espaço sem julgamentos, onde você pode falar com calma sobre o que sente." },
+      { "icone": "Target", "titulo": "Objetivos combinados", "texto": "Definimos juntos o que você quer trabalhar e revisamos o caminho ao longo do processo." },
+      { "icone": "NotebookPen", "titulo": "Prática no dia a dia", "texto": "Exercícios simples entre as sessões ajudam a levar o que conversamos para a rotina." }
+    ],
+    "temas": ["Ansiedade", "Estresse e burnout", "Autoestima", "Relacionamentos", "Luto", "Mudanças de carreira"]
+  },
+  "processo": {
+    "titulo": "Como funciona a terapia",
+    "intro": "Do primeiro contato às sessões de acompanhamento, cada etapa é combinada com você.",
+    "etapas": [
+      { "titulo": "Primeiro contato", "texto": "Você me chama no WhatsApp, tira suas dúvidas e agendamos a primeira sessão." },
+      { "titulo": "Primeira sessão", "texto": "Conheço sua história e o que te trouxe até aqui. Você também me conhece e vê se se sente à vontade." },
+      { "titulo": "Plano de trabalho", "texto": "Combinamos juntos os objetivos, a frequência e o formato das sessões." },
+      { "titulo": "Acompanhamento", "texto": "Sessões regulares, com revisões periódicas de como você está se sentindo." }
+    ],
+    "detalhes": [
+      { "icone": "Clock", "rotulo": "Duração", "valor": "50 minutos" },
+      { "icone": "CalendarDays", "rotulo": "Frequência", "valor": "Semanal ou quinzenal" },
+      { "icone": "Laptop", "rotulo": "Formato", "valor": "Online e presencial" },
+      { "icone": "Receipt", "rotulo": "Plano de saúde", "valor": "Recibo para reembolso" }
+    ]
+  },
+  "pacotes": {
+    "titulo": "Formatos de atendimento",
+    "intro": "Escolha o formato que cabe melhor na sua rotina. Valores e horários são combinados na primeira conversa.",
+    "itens": [
+      { "nome": "Psicoterapia presencial", "descricao": "Sessões individuais no consultório em Pinheiros.", "inclui": ["Adultos a partir de 18 anos", "Sessões de 50 minutos"], "icone": "MapPin" },
+      { "nome": "Psicoterapia online", "descricao": "Sessões por videochamada, de onde você estiver.", "inclui": ["Plataforma segura", "Mesma qualidade do presencial"], "icone": "Video" },
+      { "nome": "Atendimento a brasileiros no exterior", "descricao": "Sessões online em português, com horários ajustados ao seu fuso.", "inclui": ["Horários flexíveis"], "icone": "Globe" }
+    ],
+    "observacao": "Emito recibo para você pedir reembolso ao seu plano de saúde."
+  },
+  "faq": {
+    "titulo": "Dúvidas frequentes",
+    "itens": [
+      { "pergunta": "Como funciona a primeira sessão?", "resposta": "É um momento para eu conhecer sua história e o que te trouxe à terapia, e para você ver se se sente à vontade comigo. No fim, combinamos os próximos passos." },
+      { "pergunta": "A terapia online funciona?", "resposta": "Sim. As sessões online seguem os mesmos princípios do atendimento presencial. Você só precisa de um lugar reservado e uma boa conexão." },
+      { "pergunta": "Atende por plano de saúde?", "resposta": "O atendimento é particular, mas emito recibo para você solicitar reembolso, de acordo com as regras do seu plano." },
+      { "pergunta": "Quanto tempo dura a terapia?", "resposta": "Depende de cada pessoa e dos objetivos que combinamos. Revisamos juntos o andamento ao longo do processo." },
+      { "pergunta": "O que eu falo nas sessões fica entre nós?", "resposta": "Sim. O sigilo é um dever ético da psicologia e vale para tudo o que é conversado nas sessões." }
+    ]
+  },
+  "cta": {
+    "titulo": "Vamos conversar?",
+    "texto": "Mande uma mensagem para tirar dúvidas ou agendar sua primeira sessão.",
+    "botao": "Agendar pelo WhatsApp"
+  },
+  "layout": {
+    "navbar": 3,
+    "secoes": [
+      { "tipo": "hero", "variacao": 1, "tom": "claro" },
+      { "tipo": "abordagem", "variacao": 2, "tom": "suave" },
+      { "tipo": "sobre", "variacao": 1, "tom": "claro" },
+      { "tipo": "pacotes", "variacao": 3, "tom": "suave" },
+      { "tipo": "processo", "variacao": 1, "tom": "claro" },
+      { "tipo": "faq", "variacao": 2, "tom": "suave" },
+      { "tipo": "cta", "variacao": 3, "tom": "claro" }
+    ],
+    "rodape": { "variacao": 1, "tom": "escuro" },
+    "whatsappFlutuante": true
+  }
+}

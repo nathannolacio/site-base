@@ -191,8 +191,8 @@ export default function PaginaIdentidade() {
           )}
           {avaliacao && (
             <div className="rounded-grande bg-cartao p-7">
-              <Estrelas nota={avaliacao.nota} />
-              <p className="mt-4 leading-relaxed">{avaliacao.texto}</p>
+              {avaliacao.nota ? <Estrelas nota={avaliacao.nota} /> : null}
+              <p className={`leading-relaxed ${avaliacao.nota ? "mt-4" : ""}`}>{avaliacao.texto}</p>
               <p className="mt-5 text-sm text-texto-suave">
                 <strong className="font-semibold text-texto">{avaliacao.nome}</strong>
                 {avaliacao.quando && <>, {avaliacao.quando}</>}

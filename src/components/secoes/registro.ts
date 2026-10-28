@@ -8,6 +8,10 @@ import { AVALIACOES } from "./avaliacoes";
 import { LOCALIZACOES } from "./localizacao";
 import { CTAS } from "./cta";
 import { RODAPES } from "./rodape";
+import { ABORDAGENS } from "./abordagem";
+import { PROCESSOS } from "./processo";
+import { PACOTES } from "./pacotes";
+import { FAQS } from "./faq";
 
 export type Entrada = { nome: string; Componente: (p: SecaoProps) => React.ReactNode };
 
@@ -20,6 +24,10 @@ export const SECOES: Partial<Record<TipoSecao, Partial<Record<Variacao, Entrada>
   avaliacoes: AVALIACOES,
   localizacao: LOCALIZACOES,
   cta: CTAS,
+  abordagem: ABORDAGENS,
+  processo: PROCESSOS,
+  pacotes: PACOTES,
+  faq: FAQS,
 };
 
 export const ROTULO_SECAO: Record<TipoSecao, string> = {
@@ -30,6 +38,10 @@ export const ROTULO_SECAO: Record<TipoSecao, string> = {
   avaliacoes: "Avaliações",
   localizacao: "Localização e contato",
   cta: "Chamada final",
+  abordagem: "Abordagem",
+  processo: "Como funciona",
+  pacotes: "Pacotes e atendimento",
+  faq: "Dúvidas frequentes",
 };
 
 export { RODAPES };

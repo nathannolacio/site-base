@@ -20,8 +20,8 @@ export function AvaliacoesGrade({ c, tom }: SecaoProps) {
         <ul className="mt-14 gap-4 sm:columns-2 lg:columns-3">
           {avaliacoes.itens.map((a) => (
             <li key={a.nome + a.texto.slice(0, 12)} className="mb-4 break-inside-avoid rounded-grande bg-cartao p-7">
-              <Estrelas nota={a.nota} />
-              <blockquote className="mt-4 text-[1.0625rem] leading-relaxed">{a.texto}</blockquote>
+              {a.nota ? <Estrelas nota={a.nota} /> : null}
+              <blockquote className={`text-[1.0625rem] leading-relaxed ${a.nota ? "mt-4" : ""}`}>{a.texto}</blockquote>
               <p className="mt-5 text-sm text-texto-suave">
                 <strong className="font-semibold text-texto">{a.nome}</strong>
                 {a.quando && <>, {a.quando}</>}

@@ -1,6 +1,6 @@
 import { Estrelas } from "@/components/ui/Estrelas";
 import { Secao } from "@/components/ui/Secao";
-import { ANCORAS } from "@/content/conteudo";
+import { ANCORAS, temNotaGoogle } from "@/content/conteudo";
 import { nota } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
@@ -14,12 +14,19 @@ export function AvaliacoesFaixa({ c, tom }: SecaoProps) {
   return (
     <Secao id={ANCORAS.avaliacoes} tom={tom}>
       <div className="container-site grid items-end gap-8 md:grid-cols-[auto_1fr] md:gap-14">
-        <p className="titulo text-[clamp(6rem,17vw,13rem)] leading-[0.8] text-acento" aria-label={`Nota ${nota(avaliacoes.nota)} de 5`}>
-          {nota(avaliacoes.nota)}
-        </p>
+        {temNotaGoogle(c) ? (
+          <p className="titulo text-[clamp(6rem,17vw,13rem)] leading-[0.8] text-acento" aria-label={`Nota ${nota(avaliacoes.nota)} de 5`}>
+            {nota(avaliacoes.nota)}
+          </p>
+        ) : (
+          <p aria-hidden className="titulo h-[0.55em] text-[clamp(8rem,20vw,15rem)] leading-[0.9] text-acento">
+            “
+          </p>
+        )}
         <div className="pb-2">
-          <Estrelas nota={avaliacoes.nota} className="size-6" />
-          <h2 className="titulo t-2 mt-4 max-w-[18ch]">{avaliacoes.titulo}</h2>
+          {temNotaGoogle(c) && <Estrelas nota={avaliacoes.nota} className="mb-4 size-6" />}
+          <h2 className="titulo t-2 max-w-[18ch]">{avaliacoes.titulo}</h2>
+          {temNotaGoogle(c) && (
           <p className="mt-3 text-texto-suave">
             Média de {avaliacoes.total} avaliações no Google.
             {avaliacoes.fonteUrl && (
@@ -31,6 +38,7 @@ export function AvaliacoesFaixa({ c, tom }: SecaoProps) {
               </>
             )}
           </p>
+          )}
         </div>
       </div>
 
@@ -38,8 +46,8 @@ export function AvaliacoesFaixa({ c, tom }: SecaoProps) {
         <ul className="faixa-continua flex w-max items-start" style={{ ["--duracao" as string]: `${avaliacoes.itens.length * 11}s` }}>
           {repetidas.map((a, i) => (
             <li key={i} aria-hidden={i >= avaliacoes.itens.length} className="mr-5 w-[min(82vw,24rem)] shrink-0 rounded-grande bg-cartao p-7">
-              <Estrelas nota={a.nota} />
-              <blockquote className="mt-4 leading-relaxed">{a.texto}</blockquote>
+              {a.nota ? <Estrelas nota={a.nota} /> : null}
+              <blockquote className={`leading-relaxed ${a.nota ? "mt-4" : ""}`}>{a.texto}</blockquote>
               <p className="mt-5 text-sm text-texto-suave">
                 <strong className="font-semibold text-texto">{a.nome}</strong>
                 {a.quando && <>, {a.quando}</>}

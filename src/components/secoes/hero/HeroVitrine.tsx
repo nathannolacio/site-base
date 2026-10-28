@@ -2,7 +2,7 @@ import { Botao } from "@/components/ui/Botao";
 import { Foto } from "@/components/ui/Foto";
 import { Chip, Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
-import { ANCORAS } from "@/content/conteudo";
+import { ANCORAS, linkSecundario, temNotaGoogle } from "@/content/conteudo";
 import type { Foto as FotoT } from "@/content/tipos";
 import { linkWhatsapp, nota } from "@/lib/links";
 import { espacoNavbar, type SecaoProps } from "../tipos";
@@ -21,6 +21,7 @@ export function HeroVitrine({ c, tom }: SecaoProps) {
   // a foto principal fica no meio da fileira
   const fotos: FotoT[] = [extras[0], extras[1], c.fotos.hero, extras[2], extras[3]].filter(Boolean) as FotoT[];
   const meio = fotos.indexOf(c.fotos.hero);
+  const secundario = linkSecundario(c);
 
   return (
     <Secao id={ANCORAS.hero} tom={tom} espaco={false} className={`${espacoNavbar(c)} pb-16 md:pb-24`}>
@@ -36,10 +37,11 @@ export function HeroVitrine({ c, tom }: SecaoProps) {
             <Botao href={linkWhatsapp(contato.whatsapp, contato.mensagemWhatsapp)} whatsapp grande>
               Chamar no WhatsApp
             </Botao>
-            <Botao href={`#${ANCORAS.servicos}`} estilo="texto">
-              Ver o que fazemos
+            <Botao href={secundario.href} estilo="texto">
+              {secundario.rotulo}
             </Botao>
           </div>
+          {negocio.registro && <p className="mt-6 text-[0.95rem] text-texto-suave">{negocio.registro}</p>}
         </div>
       </div>
 
@@ -66,7 +68,7 @@ export function HeroVitrine({ c, tom }: SecaoProps) {
                   className="absolute -top-14 -right-2 z-10 w-28 drop-shadow-xl md:w-36 lg:-right-10"
                 />
               )}
-              {i === meio - 1 && avaliacoes.itens.length > 0 && (
+              {i === meio - 1 && temNotaGoogle(c) && (
                 <div className="absolute bottom-5 left-1/2 z-10 w-max max-w-[92%] -translate-x-1/2 lg:left-4 lg:translate-x-0">
                   <Chip
                     estilo={identidade.estilo}

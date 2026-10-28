@@ -3,7 +3,8 @@ import { NAVBARS } from "@/components/secoes/navbar";
 import { HEROS } from "@/components/secoes/hero";
 import { Chip, Detalhe, Forma, SeloCircular } from "@/components/ui/Ornamentos";
 import { RODAPES, ROTULO_SECAO, SECOES } from "@/components/secoes/registro";
-import { cliente as c, itensDoMenu } from "@/content/conteudo";
+import { cliente as c, itensDoMenu, prepararCliente, type Cliente } from "@/content/conteudo";
+import exemploTerapeuta from "@/content/exemplos/terapeuta.json";
 import type { EstiloGrafico, TipoSecao, Tom, Variacao } from "@/content/tipos";
 import { linkTelefone, linkWhatsapp } from "@/lib/links";
 
@@ -23,7 +24,38 @@ const TOM_PADRAO: Record<TipoSecao, Record<Variacao, Tom>> = {
   avaliacoes: { 1: "suave", 2: "claro", 3: "marca" },
   localizacao: { 1: "claro", 2: "claro", 3: "marca" },
   cta: { 1: "marca", 2: "escuro", 3: "suave" },
+  abordagem: { 1: "claro", 2: "suave", 3: "claro" },
+  processo: { 1: "claro", 2: "claro", 3: "marca" },
+  pacotes: { 1: "claro", 2: "suave", 3: "claro" },
+  faq: { 1: "claro", 2: "suave", 3: "claro" },
 };
+
+/* Seções de terapeuta usam o exemplo de terapeuta. Os planos 1 e 2 ganham preços de exemplo
+   (preços só valem para terapeutas que não são psicólogas). */
+const TERAPEUTA = new Set<TipoSecao>(["abordagem", "processo", "pacotes", "faq"]);
+const ct = prepararCliente(exemploTerapeuta);
+const PRECOS = [
+  { preco: "R$ 180", periodo: "por sessão" },
+  { preco: "R$ 640", periodo: "4 sessões por mês", destaque: true },
+  { preco: "R$ 1.200", periodo: "8 sessões" },
+];
+const ctComPrecos: Cliente = {
+  ...ct,
+  pacotes: ct.pacotes && {
+    ...ct.pacotes,
+    titulo: "Pacotes",
+    itens: ["Sessão avulsa", "Pacote mensal", "Pacote bimestral"].map((nome, i) => ({
+      nome,
+      descricao: ["Para conhecer o trabalho.", "O formato mais procurado.", "Para quem quer constância."][i],
+      inclui: ["Sessões de 50 minutos", "Online ou presencial"],
+      ...PRECOS[i],
+    })),
+  },
+};
+function conteudoDe(tipo: TipoSecao, v: Variacao): Cliente {
+  if (!TERAPEUTA.has(tipo)) return c;
+  return tipo === "pacotes" && v !== 3 ? ctComPrecos : ct;
+}
 const ESTILOS: { id: EstiloGrafico; nome: string; nichos: string }[] = [
   { id: "organico", nome: "Orgânico", nichos: "cafés, padarias, floriculturas, pet shops, produtos naturais" },
   { id: "geometrico", nome: "Geométrico", nichos: "escolas, academias, lojas infantis, agências, eventos" },
@@ -110,7 +142,7 @@ export default function PaginaVariacoes() {
             return (
               <Item key={v} id={`${tipo}-${v}`} rotulo={`${ROTULO_SECAO[tipo]} ${v}: ${nome}`} config={`{ "tipo": "${tipo}", "variacao": ${v}, "tom": "${tom}" }`}>
                 <div className="relative">
-                  <Componente c={{ ...c, layout: { ...c.layout, navbar: 2 } }} tom={tom} />
+                  <Componente c={{ ...conteudoDe(tipo, v), layout: { ...c.layout, navbar: 2 } }} tom={tom} />
                 </div>
               </Item>
             );

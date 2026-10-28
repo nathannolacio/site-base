@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-type Item = { nome: string; nota: number; texto: string; quando?: string };
+type Item = { nome: string; nota?: number; texto: string; quando?: string };
 
 /** Uma avaliação por vez, com setas. Sem troca automática (quem lê controla). */
 export function Alternador({ itens }: { itens: Item[] }) {
@@ -21,9 +21,11 @@ export function Alternador({ itens }: { itens: Item[] }) {
           {atual.texto}
         </blockquote>
         <figcaption className="mt-8 flex items-center gap-3 text-texto-suave">
-          <span className="text-destaque" aria-label={`${atual.nota} de 5 estrelas`}>
-            {"★".repeat(Math.round(atual.nota))}
-          </span>
+          {atual.nota ? (
+            <span className="text-destaque" aria-label={`${atual.nota} de 5 estrelas`}>
+              {"★".repeat(Math.round(atual.nota))}
+            </span>
+          ) : null}
           <span>
             <strong className="font-semibold text-texto">{atual.nome}</strong>
             {atual.quando && <>, {atual.quando}</>}

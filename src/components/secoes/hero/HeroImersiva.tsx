@@ -3,7 +3,7 @@ import { Estrelas } from "@/components/ui/Estrelas";
 import { Foto } from "@/components/ui/Foto";
 import { SeloCircular } from "@/components/ui/Ornamentos";
 import { Secao } from "@/components/ui/Secao";
-import { ANCORAS } from "@/content/conteudo";
+import { ANCORAS, linkSecundario, temNotaGoogle } from "@/content/conteudo";
 import { linkWhatsapp, nota } from "@/lib/links";
 import type { SecaoProps } from "../tipos";
 
@@ -36,10 +36,11 @@ export function HeroImersiva({ c }: SecaoProps) {
             <Botao href={linkWhatsapp(contato.whatsapp, contato.mensagemWhatsapp)} whatsapp grande>
               Chamar no WhatsApp
             </Botao>
-            <Botao href={`#${ANCORAS.servicos}`} estilo="contorno" grande className="text-white! hover:bg-white! hover:text-tinta!">
-              Conhecer
+            <Botao href={linkSecundario(c).href} estilo="contorno" grande className="text-white! hover:bg-white! hover:text-tinta!">
+              {linkSecundario(c).rotulo}
             </Botao>
           </div>
+          {negocio.registro && <p className="mt-6 text-[0.95rem] text-white/80">{negocio.registro}</p>}
         </div>
 
         <div className="flex items-end gap-5 lg:flex-col lg:items-end">
@@ -49,7 +50,7 @@ export function HeroImersiva({ c }: SecaoProps) {
           icone={identidade.icone}
           className="order-2 w-24 shrink-0 drop-shadow-xl md:w-32 lg:order-none"
         />
-        {avaliacoes.itens.length > 0 && (
+        {temNotaGoogle(c) && (
           <a
             href={`#${ANCORAS.avaliacoes}`}
             className="flex items-center gap-4 self-end rounded-grande border border-white/20 bg-white/10 px-6 py-5 text-white backdrop-blur-md transition hover:bg-white/15 lg:flex-col lg:items-start lg:gap-1"

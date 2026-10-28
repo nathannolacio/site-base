@@ -45,6 +45,10 @@ const COMPONENTES = {
   localizacao: { 1: "LocalizacaoMapa", 2: "LocalizacaoColunas", 3: "LocalizacaoBloco" },
   cta: { 1: "CtaFaixa", 2: "CtaFoto", 3: "CtaCartao" },
   rodape: { 1: "RodapeCompleto", 2: "RodapeMinimo", 3: "RodapeGigante" },
+  abordagem: { 1: "AbordagemEditorial", 2: "AbordagemCitacao", 3: "AbordagemPilares" },
+  processo: { 1: "ProcessoLinha", 2: "ProcessoLateral", 3: "ProcessoCartoes" },
+  pacotes: { 1: "PacotesCartoes", 2: "PacotesLista", 3: "PacotesFormatos" },
+  faq: { 1: "FaqAcordeao", 2: "FaqLateral", 3: "FaqGrade" },
 };
 const { layout } = cliente;
 const navbar = COMPONENTES.navbar[layout.navbar];
@@ -64,6 +68,8 @@ const FORA = [
   /^scripts\//,
   /^src\/app\/identidade\//,
   /^src\/app\/variacoes\//,
+  /^src\/app\/exemplo-terapeuta\//,
+  /^src\/content\/exemplos\//,
   /^src\/lib\/tokens\.ts$/,
   /^public\/cliente\/instagram\//,
   /\.gitkeep$/,

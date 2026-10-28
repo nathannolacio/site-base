@@ -38,8 +38,9 @@ Gera uma pasta nova, com histórico git próprio, contendo só o site: as seçõ
 | `/` | o site do cliente |
 | `/identidade` | prancha de identidade visual para aprovar (cores, fontes, componentes, prévia) |
 | `/variacoes` | catálogo com as 3 variações de cada seção |
+| `/exemplo-terapeuta` | site completo de exemplo para terapeuta/psicóloga (conteúdo em `src/content/exemplos/terapeuta.json`) |
 
-As duas últimas ficam fora do Google (noindex).
+As três últimas ficam fora do Google (noindex) e não vão na entrega.
 
 ## O que muda por cliente
 
@@ -97,6 +98,12 @@ Enquanto uma foto não existe, o site mostra um espaço reservado nas cores da m
 | Localização | Mapa grande + card | Duas colunas | Bloco de contatos |
 | Chamada final | Faixa larga | Foto de fundo | Cartão com assinatura |
 | Rodapé | Completo | Minimalista | Nome gigante |
+| Abordagem | Editorial + pilares | Foto + frase da profissional | Pilares em cartões |
+| Como funciona | Linha de etapas | Etapas com lateral fixa | Cartões numerados |
+| Pacotes e atendimento | Planos em cartões | Planos em lista | Formatos sem destaque de preço |
+| Dúvidas frequentes | Acordeão centralizado | Acordeão com lateral fixa | Respostas abertas em grade |
+
+As quatro últimas foram pensadas para sites de terapeutas, mas servem a qualquer serviço de atendimento. Para psicólogas, `negocio.registro` (nome da profissão + CRP) aparece no hero e no rodapé.
 
 Para criar uma 4ª variação: crie o componente na pasta da seção, registre no `index.ts` da pasta, no tipo `Variacao` (`src/content/tipos.ts`) e na tabela `COMPONENTES` de `scripts/entrega.mjs`.
 

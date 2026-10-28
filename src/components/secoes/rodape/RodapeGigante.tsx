@@ -43,7 +43,10 @@ export function RodapeGigante({ c, tom }: SecaoProps) {
           {negocio.nome}
         </p>
         <p className="flex flex-col justify-between gap-2 border-t border-linha py-6 text-sm text-texto-suave sm:flex-row">
-          <span>© {ANO} {negocio.nome}</span>
+          <span>
+            © {ANO} {negocio.nome}
+            {negocio.registro && <> · {negocio.registro}</>}
+          </span>
           <span>{negocio.segmento} em {negocio.cidade}</span>
         </p>
       </div>

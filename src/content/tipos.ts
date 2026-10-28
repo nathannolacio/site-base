@@ -10,7 +10,12 @@ export type TipoSecao =
   | "galeria"
   | "avaliacoes"
   | "localizacao"
-  | "cta";
+  | "cta"
+  // seções pensadas para terapeutas (servem a qualquer serviço de atendimento)
+  | "abordagem"
+  | "processo"
+  | "pacotes"
+  | "faq";
 
 export type Recorte = "reto" | "arco" | "circulo" | "pilula" | "blob" | "inclinado" | "folha";
 /** Linguagem dos elementos gráficos soltos (formas, detalhes, selo, etiquetas sobre fotos). */
@@ -33,6 +38,8 @@ export type ClienteJson = {
     frase: string;
     descricao: string;
     selo?: string;
+    /** registro profissional exibido no site, ex.: "Psicóloga · CRP 06/123456" (obrigatório para psicólogos) */
+    registro?: string;
   };
   identidade: {
     logo?: string;
@@ -81,10 +88,51 @@ export type ClienteJson = {
   galeria: { titulo: string; fotos: Foto[] };
   avaliacoes: {
     titulo: string;
+    /** nota média no Google; 0 = não mostrar nota (depoimentos sem Google) */
     nota: number;
     total: number;
     fonteUrl?: string;
-    itens: { nome: string; nota: number; texto: string; quando?: string }[];
+    itens: { nome: string; nota?: number; texto: string; quando?: string }[];
+  };
+  abordagem?: {
+    titulo: string;
+    /** nome do método, ex.: "Terapia Cognitivo-Comportamental" */
+    nome: string;
+    texto: string;
+    /** frase da profissional sobre o jeito de trabalhar */
+    citacao?: string;
+    pilares: { icone: string; titulo: string; texto: string }[];
+    /** demandas e públicos atendidos, ex.: "Ansiedade", "Adolescentes" */
+    temas: string[];
+    foto?: Foto;
+  };
+  processo?: {
+    titulo: string;
+    intro: string;
+    etapas: { titulo: string; texto: string }[];
+    /** informações práticas, ex.: { icone: "Clock", rotulo: "Duração", valor: "50 minutos" } */
+    detalhes: { icone: string; rotulo: string; valor: string }[];
+  };
+  pacotes?: {
+    titulo: string;
+    intro: string;
+    itens: {
+      nome: string;
+      /** vazio = sem preço no site (obrigatório para psicólogos, salvo atendimento só online) */
+      preco?: string;
+      periodo?: string;
+      descricao: string;
+      inclui: string[];
+      destaque?: boolean;
+      /** ícone Lucide do formato, ex.: "Video", "Users", "MapPin" */
+      icone?: string;
+    }[];
+    /** nota abaixo dos planos, ex.: "Emitimos recibo para reembolso do plano de saúde." */
+    observacao?: string;
+  };
+  faq?: {
+    titulo: string;
+    itens: { pergunta: string; resposta: string }[];
   };
   cta: { titulo: string; texto: string; botao: string };
   layout: {
