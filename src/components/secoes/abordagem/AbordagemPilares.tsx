@@ -39,10 +39,9 @@ export function AbordagemPilares({ c, tom }: SecaoProps) {
         {a.temas.length > 0 && (
           <div className="mt-20 text-center">
             <h3 className="font-semibold text-texto-suave">Para quem é</h3>
-            <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap items-center justify-center gap-x-5 gap-y-3">
+            <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-x-8 gap-y-2">
               {a.temas.map((t, i) => (
-                <li key={t} className="titulo flex items-center gap-5 text-[clamp(1.35rem,2.6vw,2.1rem)] leading-tight">
-                  {i > 0 && <span aria-hidden className="size-2.5 rounded-full bg-acento" />}
+                <li key={t} className={`titulo text-[clamp(1.35rem,2.6vw,2.1rem)] leading-tight ${i % 2 ? "text-acento" : ""}`}>
                   {t}
                 </li>
               ))}

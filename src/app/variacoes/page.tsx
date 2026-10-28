@@ -44,6 +44,8 @@ const ctComPrecos: Cliente = {
   pacotes: ct.pacotes && {
     ...ct.pacotes,
     titulo: "Pacotes",
+    intro: "Escolha o formato que cabe melhor na sua rotina.",
+    observacao: "Pacotes válidos por 60 dias. Emito recibo para reembolso do plano de saúde.",
     itens: ["Sessão avulsa", "Pacote mensal", "Pacote bimestral"].map((nome, i) => ({
       nome,
       descricao: ["Para conhecer o trabalho.", "O formato mais procurado.", "Para quem quer constância."][i],

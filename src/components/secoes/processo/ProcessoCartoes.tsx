@@ -8,9 +8,15 @@ import type { SecaoProps } from "../tipos";
  * Etapas em cartões com o número vazado e grande; o último cartão,
  * na cor de destaque, reúne as informações práticas.
  */
+/* O cartão de informações ocupa o espaço que sobra na última linha, para a grade fechar. */
+const SPAN_LG: Record<number, string> = { 1: "", 2: "lg:col-span-2", 3: "lg:col-span-3" };
+
 export function ProcessoCartoes({ c, tom }: SecaoProps) {
   const p = c.processo;
   if (!p) return null;
+  const total = p.etapas.length + 1;
+  const spanLg = SPAN_LG[total % 3 === 0 ? 1 : 3 - (total % 3) + 1];
+  const spanSm = total % 2 === 1 ? "sm:col-span-2" : "";
   return (
     <Secao id={ANCORAS.processo} tom={tom}>
       <Forma estilo={c.identidade.estilo} cor="var(--texto)" className="absolute -top-20 -right-24 w-80 opacity-[0.06] md:w-[30rem]" />
@@ -35,7 +41,7 @@ export function ProcessoCartoes({ c, tom }: SecaoProps) {
             </li>
           ))}
           {p.detalhes.length > 0 && (
-            <li className="flex flex-col justify-center gap-5 rounded-grande bg-acento p-7 text-sobre-acento md:p-8">
+            <li className={`grid content-center gap-5 rounded-grande bg-acento p-7 text-sobre-acento sm:grid-cols-2 md:p-8 ${spanSm} ${spanLg}`}>
               {p.detalhes.map((d) => (
                 <div key={d.rotulo} className="flex items-center gap-4">
                   <Icone nome={d.icone} className="size-6 shrink-0" />
