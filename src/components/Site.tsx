@@ -4,7 +4,6 @@ import { linkTelefone, linkWhatsapp } from "@/lib/links";
 import { Navbar } from "./secoes/navbar";
 import { RODAPES, SECOES } from "./secoes/registro";
 import { BannerDemo } from "./extras/BannerDemo";
-import { WhatsappFlutuante } from "./extras/WhatsappFlutuante";
 
 /** Monta a página inteira a partir de cliente.json (layout.secoes define ordem, variação e tom). */
 export function Site({ c }: { c: Cliente }) {
@@ -39,7 +38,6 @@ export function Site({ c }: { c: Cliente }) {
         })}
       </main>
       {Rodape && <Rodape c={c} tom={layout.rodape.tom} />}
-      {layout.whatsappFlutuante && <WhatsappFlutuante href={linkWhatsapp(contato.whatsapp, contato.mensagemWhatsapp)} />}
       {c.modoDemo && <BannerDemo nome={c.negocio.nome} />}
     </>
   );

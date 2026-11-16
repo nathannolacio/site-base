@@ -102,7 +102,6 @@ import { itensDoMenu } from "@/content/conteudo";
 import { linkTelefone, linkWhatsapp } from "@/lib/links";
 ${imports}
 import { BannerDemo } from "./extras/BannerDemo";
-import { WhatsappFlutuante } from "./extras/WhatsappFlutuante";
 
 export function Site({ c }: { c: Cliente }) {
   const { contato } = c;
@@ -130,7 +129,6 @@ export function Site({ c }: { c: Cliente }) {
 ${corpo}
       </main>
       <${rodape} c={c} tom="${layout.rodape.tom}" />
-      {c.layout.whatsappFlutuante && <WhatsappFlutuante href={whatsapp} />}
       {c.modoDemo && <BannerDemo nome={c.negocio.nome} />}
     </>
   );

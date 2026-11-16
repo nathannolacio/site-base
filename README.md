@@ -63,8 +63,7 @@ Componentes em `src/components/` não mudam por cliente.
     { "tipo": "sobre", "variacao": 3, "tom": "claro" },
     { "tipo": "servicos", "variacao": 2, "tom": "suave" }
   ],
-  "rodape": { "variacao": 3, "tom": "escuro" },
-  "whatsappFlutuante": true
+  "rodape": { "variacao": 3, "tom": "escuro" }
 }
 ```
 

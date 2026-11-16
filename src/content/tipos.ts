@@ -139,6 +139,5 @@ export type ClienteJson = {
     navbar: Variacao;
     secoes: SecaoLayout[];
     rodape: { variacao: Variacao; tom: Tom };
-    whatsappFlutuante: boolean;
   };
 };

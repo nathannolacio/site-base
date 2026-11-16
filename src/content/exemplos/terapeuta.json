@@ -130,7 +130,6 @@
       { "tipo": "faq", "variacao": 2, "tom": "suave" },
       { "tipo": "cta", "variacao": 3, "tom": "claro" }
     ],
-    "rodape": { "variacao": 1, "tom": "escuro" },
-    "whatsappFlutuante": true
+    "rodape": { "variacao": 1, "tom": "escuro" }
   }
 }
